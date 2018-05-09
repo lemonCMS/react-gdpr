@@ -1,0 +1,26 @@
+.react-gdr-cookiebar {
+  margin: 0px;
+  padding: 13px;
+  position: fixed;
+  height: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  z-index: 1010;
+  font-size:85%;
+}
+
+.react-gdr-cookiebar-opacity {
+  position: fixed;
+  height: 60px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  background-color: rgb(43, 47, 87);
+  opacity: 0.8;
+  color: rgb(255, 255, 255);
+  z-index: 1009;
+}

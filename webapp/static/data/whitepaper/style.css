@@ -1,0 +1,261 @@
+
+@font-face {
+  font-family: 'Open Sans';
+   src: url('OpenSans-Regular.ttf') ; 
+}
+@font-face {
+  font-family: 'Open Sans Light';
+   src: url('OpenSans-Light.ttf') ; 
+}
+@font-face {
+  font-family: 'Open Sans Bold';
+   src: url('OpenSans-Bold.ttf') ; 
+   font-weight: bold;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('Ubuntu-Regular.ttf');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('Ubuntu-Light.ttf');
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'Kalam';
+  src: url('Kalam-Regular.ttf');
+}
+
+@page { 
+	prince-shrink-to-fit: auto ;
+	size: A4;
+	margin-left: 2.5cm;
+	margin-right: 2.5cm;
+	margin-top: 2cm;
+	margin-bottom:2cm;
+	padding-left: 0px;
+	padding-right: 0px;
+	padding-top: 0;
+	padding-bottom: 0;
+	
+	@bottom-right { 
+		content: counter(page);
+		font-family: 'Open Sans Light', sans-serif;
+		font-size: 10pt;
+	}
+}
+
+@page:first  { 
+	@top-right { content: ""; }			
+	@bottom-right { content: ""; }
+}
+
+
+body, html {
+   margin: 0px 0px 0px 0px; 
+   padding: 0px; 
+   font:normal 10pt 'Open Sans', Arial, sans-serif; 
+   color:#000; 
+   line-height: 1.4em;
+}
+
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+ul, ol	{
+	margin: 0px; 
+	padding: 0px; 
+	padding-left: 10px; 
+	margin-left: 10px; 
+	margin-bottom: 20px;
+}
+li {
+    padding-left: 8px;
+}
+.paragraph ul.links {
+    padding: 0;
+    margin: 0;
+}
+
+.paragraph ul.links li {
+    list-style-type: none;
+    padding: 0px 0;
+}
+.paragraph ul.links li a {
+    display: inline-block;
+}
+
+
+
+.nowrap {
+	white-space: nowrap;
+}
+
+a {
+	text-decoration: underline; color: #2192aa;
+}
+strong {
+	font-weight:bold;
+	font-family: 'Open Sans Bold';
+}
+
+p.lead {
+	font-weight: bold;
+	font-family: 'Open Sans Bold';
+}
+.block-image img{
+	width:100%;
+	margin-bottom: 20px;
+}
+
+
+.firstpage {
+	page-break-after: always;
+	position: absolute;
+	bottom: 10%;
+}
+.firstpage table {	
+	width: 100%;
+}
+.firstpage table td {
+	width: 50%;
+	box-sizing:border-box; 
+	-moz-box-sizing:border-box; 
+	-webkit-box-sizing:border-box;	
+	vertical-align:top;
+}
+.firstpage table td:first-child {
+	padding-right:30px;
+}
+.firstpage table td:nth-child(2) {
+	border-left: 1px solid #cecece;
+	padding-left:30px;
+}
+.firstpage table img {
+	max-width: 100%;
+}
+.firstpage img.logo {
+	width: 3.0cm;
+}
+
+.secondpage, .pagewithbreak {
+	page-break-after: always;
+}
+
+
+
+h1 {
+    border-bottom: 1px solid #cecece;
+    font-family: "Ubuntu","Open Sans",sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    margin: 60px 0 20px;
+    padding: 0 0 0.75em;
+	color: #4f58cd;
+}
+h1 strong {font-weight: 400!important; font-weight:normal!important; font-family: "Ubuntu","Open Sans",sans-serif!important;}
+.firstpage h1 {
+    color: #000000;
+    font-family: "Ubuntu","Open Sans",sans-serif;
+    font-size: 26pt;
+    font-weight: 400;
+    line-height: 1.30em;
+    padding-bottom: 60px;
+	margin: 0px 0 0px;
+	border-bottom: 0px solid #cecece;
+}
+
+h2 {
+   font-family: "Ubuntu","Open Sans",sans-serif;
+    font-size: 21px;
+    font-weight: 400;
+    line-height: 1.35em;
+    margin: 30px 0 10px;
+    padding: 0;
+}
+h2 strong {font-weight: 400!important; font-weight:normal!important; font-family: "Ubuntu","Open Sans",sans-serif!important;}
+h3 {  
+	font-family: "Ubuntu","Open Sans",sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    margin: 30px 0 10px;
+    padding: 0;
+}
+
+h3 strong {font-weight: 400!important; font-weight:normal!important; font-family: "Ubuntu","Open Sans",sans-serif!important;}
+.firstpage h3 {
+	color: #8e8e8e;
+	font-family: "Ubuntu","Open Sans",sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 1.3em;
+    margin: 0px 0 10px;
+    padding: 0;
+	width: 50%;
+	padding-bottom:30px;
+}
+h4 {
+    font-family: "Open Sans",sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 40px 0 20px;
+    padding: 0;
+}
+h4 strong {font-weight: 400!important; font-weight:normal!important; font-family: "Ubuntu","Open Sans",sans-serif!important;}
+.firstpage h4 {
+	color: #4f58cd;
+	font-family: "Kalam","Ubuntu",sans-serif;
+    font-size: 19px;
+    line-height: 1.3em;
+    margin: 0px 0 10px;
+    padding: 0;
+}
+
+
+h5 {
+    font-family: "Open Sans",sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.hprint2 {
+    color: #8e8e8e;
+	font-family: 'Open Sans Bold';
+    line-height: 1.35em;
+    padding-top: 1.4em;
+	padding-bottom:0.5em;
+	font-size: 85%;
+	text-transform: uppercase;
+}
+
+
+
+
+.pagewithbreak table {
+	margin-top: 24px;
+	margin-bottom: 24px;
+    max-width: 100%;
+    width: 100%;
+	border-collapse: collapse;
+}
+
+.pagewithbreak table th {
+	border-top: 0 dashed rgba(0, 0, 0, 0.3);
+    color: #8e8e8e;
+	font-family: 'Open Sans Bold';
+    font-size: 85%;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+	
+.pagewithbreak table td {
+	padding:5px;
+	border: 1px solid #ddd;
+}
+
+.pagewithbreak table.antwoordtable td {
+	border: 0px solid #ddd;
+	border-top: 1px dashed rgba(0, 0, 0, 0.3)
+}
+ 
