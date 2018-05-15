@@ -12,7 +12,7 @@ class CookieConsent extends React.Component {
     this.toggleCookieSettings = this.toggleCookieSettings.bind(this);
     this.saveCookieConsent = this.saveCookieConsent.bind(this);
     this.listener = this.listener.bind(this);
-    this.cookieConsent = this.cookieConsent.bind(this);
+    this.cookieConsentLvl = this.cookieConsentLvl.bind(this);
     this.state = {
       showCookieSettings: false,
       showCookieBar: true,
@@ -31,13 +31,13 @@ class CookieConsent extends React.Component {
     cookies: PropTypes.object
   };
 
-  cookieConsent() {
+  cookieConsentLvl() {
     return Number((this.cookies && this.cookies.get('cookieConsent')) || this.state.level);
   }
 
   getChildContext() {
     return {
-      cookieConsent: this.cookieConsent,
+      cookieConsent: this.cookieConsentLvl,
       saveCookieConsent: this.saveCookieConsent,
       toggleCookieSettings: this.toggleCookieSettings,
       cookies: this.cookies
@@ -58,13 +58,12 @@ class CookieConsent extends React.Component {
     ) {
       const elements = this.getElements('data-gdpr-lvl');
 
-      for ( let i = 0; i < elements.length; i += 1 ) {
+      for (let i = 0; i < elements.length; i += 1) {
         if (Number(level) >= Number(elements[i].dataset.gdprLvl) && (typeof elements[i].src === 'undefined' || elements[i].src === '')) {
           elements[i].src = elements[i].dataset.gdprSrc;
         } else {
-          elements[i].src = '';
+          elements[i].removeAttribute('src');
         }
-
       }
     } else {
       window.location.reload(true);
@@ -79,6 +78,19 @@ class CookieConsent extends React.Component {
     if (typeof window !== 'undefined') {
       this.cookies = new CookiesJS();
       window.addEventListener('popstate', this.listener);
+
+      if (this.cookies.get('cookieAccepted')) {
+        const elements = this.getElements('data-gdpr-lvl');
+        const level = this.cookieConsentLvl();
+        for (let i = 0; i < elements.length; i += 1) {
+          if (Number(level) >= Number(elements[i].dataset.gdprLvl) &&
+            (typeof elements[i].src === 'undefined' || elements[i].src === '')) {
+            elements[i].src = elements[i].dataset.gdprSrc;
+          } else {
+            elements[i].removeAttribute('src');
+          }
+        }
+      }
     }
   }
 
@@ -105,7 +117,7 @@ class CookieConsent extends React.Component {
   render() {
     return (
       <div>
-        {<CookieBar open={this.state.openedByHash} /> }
+        {<CookieBar open={this.state.openedByHash} />}
       </div>
     );
   }
