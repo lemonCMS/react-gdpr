@@ -35,7 +35,7 @@ class CookieBar extends React.Component {
       });
     };
 
-    let data = Object.assign({}, this.modal);
+    let data = Object.assign({}, this.data);
     if (typeof window !== 'undefined' && window.CookieBar && window.CookieBar.bar) {
       data = Object.assign({}, data, window.CookieBar.bar);
     }
@@ -46,13 +46,13 @@ class CookieBar extends React.Component {
           this.ref = ref;
         }}>
         <div id={'react-gdr-cookiebar'} className={styles['react-gdr-cookiebar']}>
-          <div dangerouslySetInnerHTML={{__html: data.bar.info}}/>
+          <div dangerouslySetInnerHTML={{__html: data.info}} />
           <button className="btn"
             onClick={this.context.toggleCookieSettings}>{data.settingsButton}
           </button>
           {' '}
           <button className="btn btn-primary"
-            onClick={click}>>{data.acceptButton}
+            onClick={click}>{data.acceptButton}
           </button>
 
 

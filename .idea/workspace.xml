@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05ae4fff-a304-4129-9766-a5b7d6ec7deb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/Components/CookieSettings.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/CookieSettings.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/Html.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Html.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,8 +16,8 @@
       <file leaf-file-name="CookieSettings.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieSettings.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="527">
-              <caret line="45" lean-forward="true" selection-start-line="41" selection-end-line="45" />
+            <state relative-caret-position="272">
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="10" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -28,11 +25,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Html.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Html.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/src/Html.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="236">
-              <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+              <caret line="41" column="38" lean-forward="true" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -49,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CookieBar.jsx" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CookieBar.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="510">
+              <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -109,8 +106,8 @@
         <option value="$PROJECT_DIR$/webapp/package.json" />
         <option value="$PROJECT_DIR$/webapp/src/CookieConsent.jsx" />
         <option value="$PROJECT_DIR$/webapp/src/Components/CookieSettings.jsx" />
-        <option value="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" />
         <option value="$PROJECT_DIR$/webapp/src/Html.js" />
+        <option value="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" />
       </list>
     </option>
   </component>
@@ -215,27 +212,35 @@
       <workItem from="1525861885013" duration="1665000" />
       <workItem from="1525863660662" duration="11692000" />
       <workItem from="1526365697030" duration="598000" />
-      <workItem from="1526379026853" duration="2608000" />
+      <workItem from="1526379026853" duration="2781000" />
     </task>
+    <task id="LOCAL-00001" summary="add external message support.">
+      <created>1526393060438</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1526393060438</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16563000" />
+    <option name="totallyTimeSpent" value="16736000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25581396" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25581396" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.500204" side_tool="true" visible="true" weight="0.32970452" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32970452" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.499796" visible="true" weight="0.32970452" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -258,6 +263,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add external message support." />
+    <option name="LAST_COMMIT_MESSAGE" value="add external message support." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -550,12 +559,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieSettings.jsx">
+    <entry file="file://$PROJECT_DIR$/webapp/src/Html.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="527">
-          <caret line="45" lean-forward="true" selection-start-line="41" selection-end-line="45" />
+        <state relative-caret-position="236">
+          <caret line="41" column="38" lean-forward="true" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
           <folding>
-            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -567,22 +576,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx">
+    <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieSettings.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="272">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="10" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/Html.js">
+    <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="41" column="38" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="38" />
+        <state relative-caret-position="510">
+          <caret line="48" column="55" selection-start-line="48" selection-start-column="55" selection-end-line="48" selection-end-column="55" />
           <folding>
-            <element signature="e#0#39#0" expanded="true" />
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
