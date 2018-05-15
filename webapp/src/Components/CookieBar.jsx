@@ -9,6 +9,12 @@ class CookieBar extends React.Component {
     clicked: false
   };
 
+  data = {
+    info: '<a href="">bij de cookiemelding</a>',
+    settingsButton: 'instellingen',
+    acceptButton: 'accepteren'
+  };
+
   static contextTypes = {
     'toggleCookieSettings': PropTypes.func.isRequired,
     'saveCookieConsent': PropTypes.func.isRequired,
@@ -29,19 +35,24 @@ class CookieBar extends React.Component {
       });
     };
 
+    let data = Object.assign({}, this.modal);
+    if (typeof window !== 'undefined' && window.CookieBar && window.CookieBar.bar) {
+      data = Object.assign({}, data, window.CookieBar.bar);
+    }
+
     return (
       <div style={{display: 'none'}}
         ref={(ref) => {
           this.ref = ref;
         }}>
         <div id={'react-gdr-cookiebar'} className={styles['react-gdr-cookiebar']}>
-
+          <div dangerouslySetInnerHTML={{__html: data.bar.info}}/>
           <button className="btn"
-            onClick={this.context.toggleCookieSettings}>instellingen
+            onClick={this.context.toggleCookieSettings}>{data.settingsButton}
           </button>
           {' '}
           <button className="btn btn-primary"
-            onClick={click}>Accepteren
+            onClick={click}>>{data.acceptButton}
           </button>
 
 

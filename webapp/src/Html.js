@@ -36,21 +36,20 @@ export default class Html extends Component {
     const messages = () => {
       return `
         window.CookieBar = {
-          messagesAccept: {
-            1: ['a'],
-            2: ['b'],
-            3: ['c']
-          },
-          messagesDeny: {
-            1: ['a D'],
-            2: ['b D'],
-            3: ['c D']
+          bar: {
+            info: '<a href="">bij de cookiemelding</a>',
+            settingsButton: 'instellingen',
+            acceptButton: 'accepteren'
           },
           modal: {
-            header: ''
-            saveButton: 'Opslaan',
+            header: 'Cookie instellingen',
+            levels: {
+              1: {name: 'strikt', accept:[1, 2, 3], deny: [4,5,6]},
+              2: {name: 'statistiek', accept:[1,2,3,4], deny: [5,6]},
+              3: {name: 'extern', accept:[1,2,3,4,5,6], deny: []}
+            },
+            saveButton: 'Accepteren',
             closeButton: 'Sluiten'
-          
           }
         }
       `;

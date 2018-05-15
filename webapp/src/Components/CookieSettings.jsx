@@ -12,15 +12,16 @@ class CookieSettings extends React.Component {
       cookieConsent: 1
     };
 
-    this.messages = {
-      1: ['Noodzakelijke cookies plaatsen'],
-      2: ['Noodzakelijke cookies plaatsen', 'Anonieme statistieken bijhouden'],
-      3: ['Noodzakelijke cookies plaatsen', 'Anonieme statistieken bijhouden', 'Social media deelmogelijkheden laden', 'Remarketing doeleinden'],
-    };
-    this.messagesNot = {
-      1: ['Anonieme statistieken bijhouden', 'Social media deelmogelijkheden laden', 'Identificeerbare informatie delen', 'Remarketing doeleinden'],
-      2: ['Social media deelmogelijkheden laden', 'Identificeerbare informatie delen', 'Remarketing doeleinden'],
-      3: ['Identificeerbare informatie delen']
+    this.modal = {
+      header: 'Cookie instellingen',
+      body: '<p>jajajajajaj</p>',
+      levels: {
+        1: {name: 'strikt', accept: [], deny: []},
+        2: {name: 'statistiek', accept: [], deny: []},
+        3: {name: 'extern', accept: [], deny: []},
+      },
+      saveButton: 'Accepteren',
+      closeButton: 'Sluiten'
     };
   }
 
@@ -38,71 +39,43 @@ class CookieSettings extends React.Component {
   }
 
   render() {
+    let data = Object.assign({}, this.modal);
+    if (typeof window !== 'undefined' && window.CookieBar && window.CookieBar.modal) {
+      data = Object.assign({}, data, window.CookieBar.modal);
+    }
+
     return (
       <Modal show={this.props.showModal}
         onHide={this.props.close}>
         <Modal.Header closeButton>
-          <Modal.Title>Cookie instellingen</Modal.Title>
+          <Modal.Title>{data.header}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <p>
-            Wij maken bij het aanbieden van elektronische diensten gebruik van cookies. Een cookie is een eenvoudig klein bestandje dat met pagina’s van deze website wordt
-            meegestuurd en door uw browser op de harde schijf van uw computer wordt opgeslagen. Daarmee kunnen wij onder andere verschillende opvragingen van pagina’s van de
-            Website combineren en het gedrag van gebruikers analyseren.
-          </p>
-          <p>
-            Via onderstaande instellingen kunt u aangeven welke cookies u wilt accepteren. Houd er rekening mee dat door het niet accepteren van cookies een deel van de
-            functionaliteit van deze website niet beschikbaar kan zijn.
-          </p>
-
+          <div dangerouslySetInnerHTML={{__html: data.body}} />
           <div className="cookiechoose">
             <div className="btn-group">
-              <label
-                className={classNames({
-                  'btn': true,
-                  'btn-info': true,
-                  'active': this.state.cookieConsent >= 1
-                })}
-                htmlFor="r1">
-                <input
-                  type={'radio'}
-                  className={'hidden'}
-                  id={'r1'}
-                  name="r1"
-                  value={1}
-                  checked={this.state.cookieConsent === 1}
-                  onChange={this.update} /> Strikt
-              </label>
-              <label
-                className={classNames({
-                  'btn': true,
-                  'btn-info': true,
-                  'active': this.state.cookieConsent >= 2
-                })}
-                htmlFor="r2">
-                <input type={'radio'}
-                  id={'r2'}
-                  className={'hidden'}
-                  name="r1"
-                  value={2}
-                  checked={this.state.cookieConsent === 2}
-                  onChange={this.update} /> <i className="fa fa-fw fa-plus" />  Statistiek
-              </label>
-              <label
-                className={classNames({
-                  'btn': true,
-                  'btn-info': true,
-                  'active': this.state.cookieConsent === 3
-                })}
-                htmlFor="r3">
-                <input type={'radio'}
-                  id={'r3'}
-                  className={'hidden'}
-                  name="r1"
-                  value={3}
-                  checked={this.state.cookieConsent === 3}
-                  onChange={this.update} /> <i className="fa fa-fw fa-plus" /> Extern
-              </label>
+              {Object.entries(data.levels).map((item, key) => (
+                <label
+                  key={key}
+                  className={classNames({
+                    'btn': true,
+                    'btn-info': true,
+                    'active': this.state.cookieConsent >= Number(item[0])
+                  })}
+                  htmlFor={`r${item[0]}`}>
+                  <input
+                    type={'radio'}
+                    className={'hidden'}
+                    id={`r${item[0]}`}
+                    name={`r${item[0]}`}
+                    value={item[0]}
+                    checked={this.state.cookieConsent === Number(item[0])}
+                    onChange={this.update} />
+                  {' '}
+                  {item[1].name}
+                </label>
+
+              ))}
             </div>
           </div>
 
@@ -111,7 +84,7 @@ class CookieSettings extends React.Component {
               <div className="col-md-6">
                 <h4>Deze website zal wel:</h4>
                 <ul>
-                  {this.messages[this.state.cookieConsent].map((item, key) => (
+                  {data.levels[this.state.cookieConsent].accept.map((item, key) => (
                     <li key={key}><i className="fa fa-fw fa-check" />{' '}{item}</li>
                   ))}
                 </ul>
@@ -119,7 +92,7 @@ class CookieSettings extends React.Component {
               <div className="col-md-6">
                 <h4>Deze website zal niet:</h4>
                 <ul>
-                  {this.messagesNot[this.state.cookieConsent].map((item, key) => (
+                  {data.levels[this.state.cookieConsent].deny.map((item, key) => (
                     <li key={key}><i className="fa fa-fw fa-close" />{' '}{item}</li>
                   ))}
                 </ul>
@@ -128,14 +101,14 @@ class CookieSettings extends React.Component {
           </div>
         </Modal.Body>
         <Modal.Footer key="footer">
-          <Button onClick={this.props.close}>Sluiten</Button>
+          <Button onClick={this.props.close}>{data.saveButton}</Button>
 
           <Button bsStyle="primary"
             onClick={() => {
               this.context.saveCookieConsent(this.state.cookieConsent);
               this.props.close();
             }}>
-            Opslaan
+            {data.closeButton}
           </Button>
 
         </Modal.Footer>
