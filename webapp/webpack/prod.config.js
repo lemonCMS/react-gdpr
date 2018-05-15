@@ -22,13 +22,13 @@ module.exports = {
   context: path.resolve(__dirname, '..'),
   entry: {
     main: [
-      './src/CookieConsent.jsx'
+      './src/client.js'
     ]
   },
   output: {
     path: assetsPath,
-    filename: '[name]-[chunkhash].js',
-    chunkFilename: '[name]-[chunkhash].js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     publicPath: '/dist/'
   },
   performance: {
@@ -184,7 +184,7 @@ module.exports = {
 
     // css files from the extract-text-plugin loader
     new ExtractTextPlugin({
-      filename: '[name]-[chunkhash].css',
+      filename: '[name].css',
       // disable: false,
       allChunks: true
     }),

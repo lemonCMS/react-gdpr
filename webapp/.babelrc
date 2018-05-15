@@ -13,11 +13,11 @@
         "loose": true
       }
     ],
-    "@babel/preset-stage-2"
+    ["@babel/preset-stage-0", {"decoratorsLegacy": true}]
   ],
 
   "plugins": [
-    "@babel/plugin-proposal-decorators",
+    ["@babel/plugin-proposal-decorators", {"legacy": true}],
     "@babel/plugin-transform-runtime",
     "@babel/plugin-transform-react-jsx",
     "react-loadable/babel"

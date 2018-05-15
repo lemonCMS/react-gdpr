@@ -24,3 +24,129 @@
   color: rgb(255, 255, 255);
   z-index: 1009;
 }
+
+.react-gdr-page-overlay {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: rgb(83, 88, 90);
+  opacity: 0.8;
+  color: rgb(255, 255, 255);
+  z-index: 1020;
+}
+
+.react-gdr-page-modal-container {
+  position: fixed;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 1021;
+}
+
+.react-gdr-page-modal {
+  position: relative;
+  background-color: #fff;
+  min-height: 104px;
+  max-width: 720px;
+  z-index: 1022;
+  padding:0;
+  margin: 0 auto;
+  margin-top: 30px;
+  font-family:  Arial, sans-serif;
+
+  .header {
+    background-color: #2b2f57;
+    color: white;;
+    padding: 10px 20px;
+    font-size: 1.8em;
+  }
+
+  .body {
+    padding: 20px;
+    color: #333;
+    font-size: 0.9em;
+    line-height: 1.8em;
+  }
+
+  .info {
+    margin-bottom: 10px;
+  }
+  .info {
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+  }
+
+  .level {
+    border: 2px solid #aaa;
+    padding: 10px;
+    display: flex;
+    margin-bottom: 10px;
+  }
+
+  .level:hover {
+    border-color: #0c667a;
+  }
+
+  .level.active, .level:hover.active {
+    border-color: #0c8599;
+    background-color: #dffdff;
+  }
+
+  .level::after, .buttonBar::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+  .levelTxt {
+    padding: 10px;
+    width: calc(100% - 165px);
+  }
+
+  .icon {
+    float: left;
+    text-align: center;
+    background-color: #0c8599;
+    color: #fff;
+    padding: 10px 30px;
+    width: 165px;
+  }
+
+  .buttonBar {
+  }
+
+  .button {
+    background-color: #0c8599;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    float: right;
+  }
+
+  .button:hover {
+    background-color: #0c667a;
+  }
+
+  .button[disabled], .button[disabled]:hover {
+    background-color: #babdc2;
+  }
+}
+
+
+@media only screen and (max-width: 600px) {
+  .react-gdr-page-modal {
+    .icon {
+      display: none;
+    }
+    .levelTxt {
+      width: 100%;
+    }
+  }
+}
