@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05ae4fff-a304-4129-9766-a5b7d6ec7deb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/webapp/src/CookieConsent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/CookieConsent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/Html.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Html.js" afterDir="false" />
-    </list>
+    <list default="true" id="05ae4fff-a304-4129-9766-a5b7d6ec7deb" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -292,7 +289,7 @@
       <workItem from="1526365697030" duration="598000" />
       <workItem from="1526379026853" duration="2781000" />
       <workItem from="1526409712603" duration="2660000" />
-      <workItem from="1526412433934" duration="16733000" />
+      <workItem from="1526412433934" duration="17342000" />
     </task>
     <task id="LOCAL-00001" summary="add external message support.">
       <created>1526393060438</created>
@@ -319,11 +316,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36129000" />
+    <option name="totallyTimeSpent" value="36738000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3329776" />
       <window_info anchor="bottom" id="TODO" order="6" />
