@@ -8,21 +8,6 @@ import styles from './Cookiebar.scss';
 import Level from './Level';
 
 class CookieBar extends React.Component {
-  reactGpdrSettings = {
-    title: 'Deze website gebruikt cookies',
-    intro: 'Daarmee zorgen we dat de website werkt en je kunt inloggen. Selecteer één van de drie opties en klik op\n' +
-    '                ‘Accepteren’.',
-    url: '/cookies',
-    url_title: 'privacy- en cookieverklaring.',
-    button: 'Accepteren',
-    level1: 'Cookies zonder video&#39;s en zonder aanbiedingen. Deze zijn nodig om onze website te kunnen bezoeken en\n' +
-    '                in te kunnen loggen. Je bezoek en gegevens worden niet bijgehouden.',
-    level2: 'Cookies met video&#39;s maar zonder aanbiedingen. Met deze cookies kun je de website bezoeken,\n' +
-    '                inloggen en video&#39;s bekijken. Je bezoek en gegevens worden bijgehouden.',
-    level3: ' Cookies met video&#39;s en aanbiedingen. Met deze cookies werkt de website optimaal. Je bezoek wordt\n' +
-    '                bijgehouden zodat we onze website kunnen verbeteren en je aanbiedingen kunnen doen.',
-  };
-
   state = {
     disabled: true,
     level: null
@@ -32,36 +17,38 @@ class CookieBar extends React.Component {
     'toggleCookieSettings': PropTypes.func.isRequired,
     'saveCookieConsent': PropTypes.func.isRequired,
     'cookies': PropTypes.object,
-    'cookieConsent': PropTypes.func
+    'cookieConsent': PropTypes.func,
+    'config': PropTypes.object
   };
 
   componentDidMount() {
-    if (
-      (window &&
-        this.context.cookies.get('cookieAccepted') !== 'true') ||
-      this.props.open === true
-    ) {
-      this.ref.style.display = 'block';
+    if (this.context.config.ignoreUserAgent === false) {
+      if (
+        (window &&
+          this.context.cookies.get('cookieAccepted') !== 'true') ||
+        this.props.open === true
+
+      ) {
+        this.ref.style.display = 'block';
+      }
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (
-      nextProps.open === true
-    ) {
-      this.ref.style.display = 'block';
-      this.setState({level: this.context.cookieConsent(), disabled: false, amber: 'black'});
-    } else if (nextProps.open === false) {
-      this.ref.style.display = 'none';
+    if (this.context.config.ignoreUserAgent === false) {
+      if (
+        nextProps.open === true
+      ) {
+        this.ref.style.display = 'block';
+        this.setState({level: this.context.cookieConsent(), disabled: false, amber: 'black'});
+      } else if (nextProps.open === false) {
+        this.ref.style.display = 'none';
+      }
     }
   }
 
   render() {
-    let data = this.reactGpdrSettings;
-    if (typeof window !== 'undefined' && typeof window.reactGpdrSettings !== 'undefined') {
-      data = Object.assign({}, this.reactGpdrSettings, window.reactGpdrSettings);
-    }
-
+    const data = this.context.config;
     const levelClick = (level) => {
       this.setState({level: Number(level), disabled: false});
     };

@@ -16,7 +16,7 @@ module.exports = {
   mode: 'production',
   context: path.resolve(__dirname, '..'),
   entry: {
-    gdr: [
+    gdpr: [
       './src/client.js'
     ]
   },
@@ -175,7 +175,7 @@ module.exports = {
   },
 
   plugins: [
-    new CleanPlugin([assetsPath], { root: projectRootPath }),
+    new CleanPlugin([assetsPath], { root: path.resolve(projectRootPath, '..') }),
 
     // css files from the extract-text-plugin loader
     new ExtractTextPlugin({
