@@ -48,6 +48,8 @@ Add ```data-gdpr-lvl```
 | 2 | + statistics |
 | 3 | + external youtube, facebook, twitter addthis etc |
 
+After the user makes his choose the page will be updated or reloaded depending on your configuration.
+
 ### Config
 
 ```html
