@@ -2,7 +2,6 @@
 var path = require('path');
 var webpack = require('webpack');
 var CleanPlugin = require('clean-webpack-plugin');
-var ReactLoadablePlugin = require('react-loadable/webpack').ReactLoadablePlugin;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var projectRootPath = path.resolve(__dirname, '../');
@@ -11,24 +10,20 @@ var assetsPath = path.resolve(projectRootPath, './static/dist');
 // https://github.com/halt-hammerzeit/webpack-isomorphic-tools
 var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools'));
-
-var SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-
-// var GoogleFontsPlugin = require('google-fonts-webpack-plugin');
+var UglifyJSPlugin = require('uglify-js-plugin');
 
 module.exports = {
   mode: 'production',
   context: path.resolve(__dirname, '..'),
   entry: {
     main: [
-      './src/CookieConsent.jsx'
+      './src/client.js'
     ]
   },
   output: {
     path: assetsPath,
-    filename: '[name]-[chunkhash].js',
-    chunkFilename: '[name]-[chunkhash].js',
+    filename: '[name].js',
+    chunkFilename: '[name].js',
     publicPath: '/dist/'
   },
   performance: {
@@ -184,7 +179,7 @@ module.exports = {
 
     // css files from the extract-text-plugin loader
     new ExtractTextPlugin({
-      filename: '[name]-[chunkhash].css',
+      filename: '[name].css',
       // disable: false,
       allChunks: true
     }),
@@ -192,6 +187,19 @@ module.exports = {
 
     // ignore dev config
     new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
-
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify('production')
+    }),
+    new UglifyJSPlugin({
+      uglifyOptions: {
+        beautify: false,
+        compress: true,
+        comments: false,
+        mangle: false,
+        toplevel: false,
+        keep_classnames: true, // <-- doesn't exist, I guess. It's in harmony branch
+        keep_fnames: true //
+      }
+    })
   ]
 };

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import serialize from 'serialize-javascript';
 import Helmet from 'react-helmet';
 import config from './config';
 
@@ -20,7 +19,7 @@ export default class Html extends Component {
       javascript: PropTypes.object
     }),
     bundles: PropTypes.arrayOf(PropTypes.any),
-    content: PropTypes.string,
+    content: PropTypes.string
   };
 
   static defaultProps = {
@@ -35,26 +34,9 @@ export default class Html extends Component {
 
     const messages = () => {
       return `
-        window.CookieBar = {
-          bar: {
-            info: '<a href="">bij de cookiemelding</a>',
-            settingsButton: 'instellingen',
-            acceptButton: 'accepteren'
-          },
-          modal: {
-            header: 'Cookie instellingen',
-            levels: {
-              1: {name: 'strikt', accept:[1, 2, 3], deny: [4,5,6]},
-              2: {name: 'statistiek', accept:[1,2,3,4], deny: [5,6]},
-              3: {name: 'extern', accept:[1,2,3,4,5,6], deny: []}
-            },
-            saveButton: 'Accepteren',
-            closeButton: 'Sluiten'
-          }
-        }
+        window.reactGpdrSettings = {reload: false};
       `;
     };
-
 
     const loader = () => {
       const styleSheets = assets.styles && Object.keys(assets.styles).map(style => `loadCSS('${assets.styles[style]}');`);
@@ -95,8 +77,9 @@ export default class Html extends Component {
           {assets.styles && Object.keys(assets.styles).length === 0 ? <style dangerouslySetInnerHTML={{__html: '#reactContent{display:none}'}} /> : null}
         </head>
         <body className="smart-style-4">
+          <iframe title="bingo" charSet="UTF-8" width="560" height="315" data-gdpr-lvl="3" data-gdpr-src="https://www.youtube-nocookie.com/embed/Ur_tXqaNXOI" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
           <div id="reactContent" dangerouslySetInnerHTML={{__html: content}} />
-
+          <a href="#cookieConsent">Open cookieconsent</a>
           {__DLLS__ && <script key="dlls__vendor" src="/dist/dlls/dll__vendor.js" charSet="UTF-8" />}
           {assets.javascript && <script src={assets.javascript.main} charSet="UTF-8" />}
 
