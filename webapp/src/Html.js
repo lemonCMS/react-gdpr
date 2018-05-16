@@ -77,7 +77,7 @@ export default class Html extends Component {
           {assets.styles && Object.keys(assets.styles).length === 0 ? <style dangerouslySetInnerHTML={{__html: '#reactContent{display:none}'}} /> : null}
         </head>
         <body className="smart-style-4">
-          <iframe title="bingo" charSet="UTF-8" width="560" height="315" data-gdpr-lvl="3" data-gdpr-src="https://www.youtube-nocookie.com/embed/Ur_tXqaNXOI" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
+          <iframe title="bingo" charSet="UTF-8" width="560" height="315" data-gdpr-lvl="3" data-gdpr-src="https://www.youtube.com/embed/Ur_tXqaNXOI" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
           <div id="reactContent" dangerouslySetInnerHTML={{__html: content}} />
           <a href="#cookieConsent">Open cookieconsent</a>
           {__DLLS__ && <script key="dlls__vendor" src="/dist/dlls/dll__vendor.js" charSet="UTF-8" />}
