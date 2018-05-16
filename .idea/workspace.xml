@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05ae4fff-a304-4129-9766-a5b7d6ec7deb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/gdr.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/gdpr.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/gdr.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/gdpr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/CookieConsent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/CookieConsent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/webpack/prod.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/webpack/prod.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,7 +27,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="523">
-                <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
+                <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
               </first_editor>
               <second_editor />
             </state>
@@ -259,13 +251,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41872000" />
+    <option name="totallyTimeSpent" value="41950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21558164" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21558164" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4461046" side_tool="true" weight="0.5592672" />
@@ -274,7 +266,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5538954" visible="true" weight="0.20905173" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.5538954" visible="true" weight="0.20905173" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -679,7 +671,7 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="523">
-            <caret line="79" column="23" selection-start-line="79" selection-start-column="23" selection-end-line="79" selection-end-column="23" />
+            <caret line="76" column="4" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="4" />
           </first_editor>
           <second_editor />
         </state>

@@ -36,7 +36,7 @@ You need to change that into
 <iframe charSet="UTF-8" width="560" height="315" data-gdpr-lvl="3" data-gdpr-src="https://www.youtube-nocookie.com/embed/Ur_tXqaNXOI" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 ````
 
-###What we did
+### What we did
 
 Change ```src``` to ```data-gdpr-src```
 
@@ -48,7 +48,7 @@ Add ```data-gdpr-lvl```
 | 2 | + statistics |
 | 3 | + external youtube, facebook, twitter addthis etc |
 
-###Config
+### Config
 
 ```html
 <script>
@@ -74,7 +74,7 @@ var reactGpdrSettings = {
     </script>
 ```
 
-###Api
+### Api
 Call the cookie consent window from anywhere
 ```html
 <a href="#cookieConsent">Cookie settings</a>
