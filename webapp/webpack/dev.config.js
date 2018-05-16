@@ -4,7 +4,6 @@ require('@babel/polyfill');
 var fs = require('fs');
 var path = require('path');
 var webpack = require('webpack');
-var GoogleFontsPlugin = require('google-fonts-webpack-plugin');
 var helpers = require('./helpers');
 
 var assetsPath = path.resolve(__dirname, '../static/dist');
