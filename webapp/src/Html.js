@@ -77,6 +77,7 @@ export default class Html extends Component {
           {assets.styles && Object.keys(assets.styles).length === 0 ? <style dangerouslySetInnerHTML={{__html: '#reactContent{display:none}'}} /> : null}
         </head>
         <body className="smart-style-4">
+          <div className="addthis_sharing_toolbox" />
           <iframe title="bingo" charSet="UTF-8" width="560" height="315" data-gdpr-lvl="3" data-gdpr-src="https://www.youtube.com/embed/Ur_tXqaNXOI" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen />
           <div id="reactContent" dangerouslySetInnerHTML={{__html: content}} />
           <a href="#cookieConsent">Open cookieconsent</a>
@@ -91,6 +92,7 @@ export default class Html extends Component {
           <script src="/js/async.js" />
           <script dangerouslySetInnerHTML={{__html: loader()}} />
           <script dangerouslySetInnerHTML={{__html: messages()}} />
+          <script type="text/javascript" data-gdpr-lvl="3" data-gdpr-src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529cd319245ade32" />
         </body>
       </html>
     );

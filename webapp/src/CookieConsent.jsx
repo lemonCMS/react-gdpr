@@ -6,6 +6,10 @@ import CookieBar from './Components/CookieBar';
 
 class CookieConsent extends React.Component {
   cookies = null;
+  cookieOptions = {
+    path: '/',
+    expires: new Date(new Date().getTime()+60*60*1000*24*(365*5)) //5 years
+  };
   iframeBlobData = null;
 
   constructor() {
@@ -47,8 +51,8 @@ class CookieConsent extends React.Component {
   }
 
   saveCookieConsent(level) {
-    this.cookies.set('cookieConsent', level);
-    this.cookies.set('cookieAccepted', 'true');
+    this.cookies.set('cookieConsent', level, this.cookieOptions);
+    this.cookies.set('cookieAccepted', 'true', this.cookieOptions);
     this.setState({openedByHash: false}, () => {
       this.setState({level: level, showCookieBar: false});
     });
@@ -61,11 +65,13 @@ class CookieConsent extends React.Component {
       const elements = this.getElements('data-gdpr-lvl');
 
       for (let i = 0; i < elements.length; i += 1) {
-        if (Number(level) >= Number(elements[i].dataset.gdprLvl) &&
-          (typeof elements[i].src === 'undefined' || elements[i].src === '' || elements[i].dataset.gdprPlaceholder)) {
-          elements[i].src = elements[i].dataset.gdprSrc;
-          if (elements[i].dataset.gdprPlaceholder) {
-            delete elements[i].dataset.gdprPlaceholder;
+        if (Number(level) >= Number(elements[i].dataset.gdprLvl)) {
+          if (
+            (typeof elements[i].src === 'undefined' || elements[i].src === '' || elements[i].dataset.gdprPlaceholder)) {
+            elements[i].src = elements[i].dataset.gdprSrc;
+            if (elements[i].dataset.gdprPlaceholder) {
+              delete elements[i].dataset.gdprPlaceholder;
+            }
           }
         } else {
           elements[i].removeAttribute('src');
@@ -104,11 +110,12 @@ class CookieConsent extends React.Component {
         const elements = this.getElements('data-gdpr-lvl');
         const level = this.cookieConsentLvl();
         for (let i = 0; i < elements.length; i += 1) {
-          if (Number(level) >= Number(elements[i].dataset.gdprLvl) &&
-            (typeof elements[i].src === 'undefined' || elements[i].src === '' || elements[i].dataset.gdprPlaceholder)) {
-            elements[i].src = elements[i].dataset.gdprSrc;
-            if (elements[i].dataset.gdprPlaceholder) {
-              delete elements[i].dataset.gdprPlaceholder;
+          if (Number(level) >= Number(elements[i].dataset.gdprLvl)) {
+            if ((typeof elements[i].src === 'undefined' || elements[i].src === '' || elements[i].dataset.gdprPlaceholder)) {
+              elements[i].src = elements[i].dataset.gdprSrc;
+              if (elements[i].dataset.gdprPlaceholder) {
+                delete elements[i].dataset.gdprPlaceholder;
+              }
             }
           } else {
             elements[i].removeAttribute('src');
