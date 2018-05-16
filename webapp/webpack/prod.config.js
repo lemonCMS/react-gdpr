@@ -5,7 +5,7 @@ var CleanPlugin = require('clean-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var projectRootPath = path.resolve(__dirname, '../');
-var assetsPath = path.resolve(projectRootPath, './static/dist');
+var assetsPath = path.resolve(projectRootPath, '../dist');
 
 // https://github.com/halt-hammerzeit/webpack-isomorphic-tools
 var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
@@ -16,7 +16,7 @@ module.exports = {
   mode: 'production',
   context: path.resolve(__dirname, '..'),
   entry: {
-    main: [
+    gdr: [
       './src/client.js'
     ]
   },

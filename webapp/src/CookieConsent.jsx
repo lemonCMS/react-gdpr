@@ -8,7 +8,7 @@ class CookieConsent extends React.Component {
   cookies = null;
   cookieOptions = {
     path: '/',
-    expires: new Date(new Date().getTime()+60*60*1000*24*(365*5)) //5 years
+    expires: new Date(new Date().getTime() + (60 * 60 * 1000 * 24 * (365 * 5))) //5 years
   };
   iframeBlobData = null;
 
