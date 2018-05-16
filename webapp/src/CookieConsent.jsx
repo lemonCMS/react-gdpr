@@ -6,6 +6,7 @@ import CookieBar from './Components/CookieBar';
 
 class CookieConsent extends React.Component {
   cookies = null;
+  iframeBlobData = null;
 
   constructor() {
     super();
@@ -13,6 +14,7 @@ class CookieConsent extends React.Component {
     this.saveCookieConsent = this.saveCookieConsent.bind(this);
     this.listener = this.listener.bind(this);
     this.cookieConsentLvl = this.cookieConsentLvl.bind(this);
+    this.iframeBlob = this.iframeBlob.bind(this);
     this.state = {
       showCookieSettings: false,
       showCookieBar: true,
@@ -59,10 +61,18 @@ class CookieConsent extends React.Component {
       const elements = this.getElements('data-gdpr-lvl');
 
       for (let i = 0; i < elements.length; i += 1) {
-        if (Number(level) >= Number(elements[i].dataset.gdprLvl) && (typeof elements[i].src === 'undefined' || elements[i].src === '')) {
+        if (Number(level) >= Number(elements[i].dataset.gdprLvl) &&
+          (typeof elements[i].src === 'undefined' || elements[i].src === '' || elements[i].dataset.gdprPlaceholder)) {
           elements[i].src = elements[i].dataset.gdprSrc;
+          if (elements[i].dataset.gdprPlaceholder) {
+            delete elements[i].dataset.gdprPlaceholder;
+          }
         } else {
           elements[i].removeAttribute('src');
+          if (elements[i].tagName === 'IFRAME') {
+            elements[i].setAttribute('src', this.iframeBlob());
+            elements[i].dataset.gdprPlaceholder = true;
+          }
         }
       }
     } else {
@@ -72,6 +82,17 @@ class CookieConsent extends React.Component {
 
   toggleCookieSettings() {
     this.setState({showCookieSettings: !this.state.showCookieSettings});
+  }
+
+  iframeBlob() {
+    if (this.iframeBlobData) {
+      return this.iframeBlobData;
+    }
+    const loc = window.location.href.replace(window.location.hash, '');
+    const html = `<html><h3>You are not allowed to view this resource, change your <a href="${loc}#cookieConsent" target="_top">cookiesettings</a></h3></html>`;
+    const blob = new Blob([html], {type: 'text/html'});
+    this.iframeBlobData = URL.createObjectURL(blob);
+    return this.iframeBlobData;
   }
 
   componentDidMount() {
@@ -84,10 +105,17 @@ class CookieConsent extends React.Component {
         const level = this.cookieConsentLvl();
         for (let i = 0; i < elements.length; i += 1) {
           if (Number(level) >= Number(elements[i].dataset.gdprLvl) &&
-            (typeof elements[i].src === 'undefined' || elements[i].src === '')) {
+            (typeof elements[i].src === 'undefined' || elements[i].src === '' || elements[i].dataset.gdprPlaceholder)) {
             elements[i].src = elements[i].dataset.gdprSrc;
+            if (elements[i].dataset.gdprPlaceholder) {
+              delete elements[i].dataset.gdprPlaceholder;
+            }
           } else {
             elements[i].removeAttribute('src');
+            if (elements[i].tagName === 'IFRAME') {
+              elements[i].setAttribute('src', this.iframeBlob());
+              elements[i].dataset.gdprPlaceholder = true;
+            }
           }
         }
       }
