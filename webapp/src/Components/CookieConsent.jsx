@@ -1,8 +1,11 @@
 import React from 'react';
+import ReactDomServer from 'react-dom/server';
 import PropTypes from 'prop-types';
 import {hot} from 'react-hot-loader';
 import CookiesJS from 'universal-cookie';
-import CookieBar from './Components/CookieBar';
+import uniqid from 'uniqid';
+import CookieBar from './CookieBar';
+import BlockResource from './BlockResource';
 
 class CookieConsent extends React.Component {
   config = {
@@ -14,22 +17,20 @@ class CookieConsent extends React.Component {
     url: '/cookies',
     url_title: 'privacy- en cookieverklaring.',
     button: 'Accepteren',
-    level1: 'Cookies zonder video&#39;s en zonder aanbiedingen. Deze zijn nodig om onze website te kunnen bezoeken en\n' +
+    level1: '<h4>Strict:</h4> Cookies zonder video&#39;s en zonder aanbiedingen. Deze zijn nodig om onze website te kunnen bezoeken en\n' +
     '                in te kunnen loggen. Je bezoek en gegevens worden niet bijgehouden.',
-    level2: 'Cookies met video&#39;s maar zonder aanbiedingen. Met deze cookies kun je de website bezoeken,\n' +
+    level2: '<h4>Statistieken:</h4> Cookies met video&#39;s maar zonder aanbiedingen. Met deze cookies kun je de website bezoeken,\n' +
     '                inloggen en video&#39;s bekijken. Je bezoek en gegevens worden bijgehouden.',
-    level3: ' Cookies met video&#39;s en aanbiedingen. Met deze cookies werkt de website optimaal. Je bezoek wordt\n' +
+    level3: '<h4>Extern:</h4> Cookies met video&#39;s en aanbiedingen. Met deze cookies werkt de website optimaal. Je bezoek wordt\n' +
     '                bijgehouden zodat we onze website kunnen verbeteren en je aanbiedingen kunnen doen.',
-    iFrameBlob: '<html><h3>You are not allowed to view this resource, change your <a href="' +
-    window.location.href.replace(window.location.hash, '') +
-    '#cookieConsent" target="_top">cookiesettings</a></h3></html>'
+    iFrameBlob: ReactDomServer.renderToStaticMarkup(<BlockResource />),
   };
   cookies = null;
   cookieOptions = {
     path: '/',
     expires: new Date(new Date().getTime() + (60 * 60 * 1000 * 24 * (365 * 5))) //5 years
   };
-  iframeBlobData = null;
+  iFrameBlobData = null;
 
   constructor() {
     super();
@@ -62,9 +63,8 @@ class CookieConsent extends React.Component {
   cookieConsentLvl() {
     if (this.config.ignoreUserAgent === true) {
       return 3;
-    } else {
-      return Number((this.cookies && this.cookies.get('cookieConsent')) || this.state.level);
     }
+    return Number((this.cookies && this.cookies.get('cookieConsent'))) || null;
   }
 
   getChildContext() {
@@ -80,13 +80,14 @@ class CookieConsent extends React.Component {
   saveCookieConsent(level) {
     this.cookies.set('cookieConsent', level, this.cookieOptions);
     this.cookies.set('cookieAccepted', 'true', this.cookieOptions);
-    this.setState({openedByHash: false}, () => {
-      this.setState({level: level, showCookieBar: false});
-    });
-    if (
-      this.config.readonly === false
-    ) {
+    this.setState({openedByHash: false, level: level, showCookieBar: false});
+    if (this.config.reload === false) {
       this.updateDoc();
+      if (typeof window.history !== 'undefined' && typeof window.history.pushState !== 'undefined') {
+        window.history.pushState(null, null, window.location.href.split('#')[0]);
+      } else {
+        window.location.hash = '';
+      }
     } else {
       window.location.reload(true);
     }
@@ -97,16 +98,26 @@ class CookieConsent extends React.Component {
   }
 
   iframeBlob() {
-    if (this.iframeBlobData) {
-      return this.iframeBlobData;
+    if (this.iFrameBlobData) {
+      return this.iFrameBlobData;
     }
     const blob = new Blob([this.config.iFrameBlob], {type: 'text/html'});
-    this.iframeBlobData = URL.createObjectURL(blob);
-    return this.iframeBlobData;
+    this.iFrameBlobData = URL.createObjectURL(blob);
+    return this.iFrameBlobData;
   }
 
-
   componentWillMount() {
+    if (
+      typeof window !== 'undefined' &&
+      typeof window.location !== 'undefined' &&
+      typeof window.location.hash !== 'undefined' &&
+      window.location.hash === '#cookieConsent'
+    ) {
+      this.setState({
+        openedByHash: true,
+        showCookieBar: true
+      });
+    }
     this.init();
   }
 
@@ -121,29 +132,46 @@ class CookieConsent extends React.Component {
       if (typeof window !== 'undefined' && typeof window.reactGpdrSettings !== 'undefined') {
         this.config = Object.assign({}, this.config, window.reactGpdrSettings);
       }
-
-      window.addEventListener('popstate', this.listener);
+      window.addEventListener('hashchange', this.listener);
       this.updateDoc();
     }
   }
 
   updateDoc() {
-    if (this.cookies.get('cookieAccepted') || this.config.ignoreUserAgent === true) {
-      const elements = this.getElements('data-gdpr-lvl');
-      const level = this.cookieConsentLvl();
-      for (let i = 0; i < elements.length; i += 1) {
-        if (Number(level) >= Number(elements[i].dataset.gdprLvl)) {
-          if ((typeof elements[i].src === 'undefined' || elements[i].src === '' || elements[i].dataset.gdprPlaceholder)) {
-            elements[i].src = elements[i].dataset.gdprSrc;
-            if (elements[i].dataset.gdprPlaceholder) {
-              delete elements[i].dataset.gdprPlaceholder;
+    const elements = this.getElements('data-gdpr-lvl');
+    const level = this.cookieConsentLvl();
+    for (let i = 0; i < elements.length; i += 1) {
+      if (Number(level) >= Number(elements[i].dataset.gdprLvl)) {
+        if ((typeof elements[i].src === 'undefined' || elements[i].src === '' || elements[i].dataset.gdprPlaceholder)) {
+          elements[i].src = elements[i].dataset.gdprSrc;
+          if (elements[i].dataset.gdprPlaceholder) {
+            delete elements[i].dataset.gdprPlaceholder;
+            const id = elements[i].dataset.gdprUniqId;
+            elements[i].style.display = elements[i].dataset.gdprDisplay;
+            const child = document.getElementById(id);
+            if (child) {
+              child.parentNode.removeChild(child);
             }
           }
-        } else {
-          elements[i].removeAttribute('src');
-          if (elements[i].tagName === 'IFRAME') {
-            elements[i].setAttribute('src', this.iframeBlob());
+        }
+      } else {
+        elements[i].removeAttribute('src');
+        if (elements[i].tagName === 'IFRAME') {
+          if (!elements[i].dataset.gdprPlaceholder) {
+            elements[i].dataset.gdprDisplay = elements[i].style.display;
+            elements[i].style.display = 'none';
+            const child = document.createElement('div');
+            const id = `gdpr-${uniqid()}`;
+
             elements[i].dataset.gdprPlaceholder = true;
+            elements[i].dataset.gdprUniqId = id;
+            child.setAttribute('id', id);
+            if (elements[i].nextSibling) {
+              elements[i].parentNode.insertBefore(child, elements[i].nextSibling);
+            } else {
+              elements[i].parentNode.appendChild(child);
+            }
+            child.innerHTML = this.config.iFrameBlob;
           }
         }
       }

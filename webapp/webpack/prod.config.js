@@ -13,6 +13,7 @@ var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./w
 var UglifyJSPlugin = require('uglify-js-plugin');
 
 module.exports = {
+  devtool: 'source-map',
   mode: 'production',
   context: path.resolve(__dirname, '..'),
   entry: {

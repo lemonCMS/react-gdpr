@@ -18,6 +18,8 @@ var serverOptions = {
   stats: { colors: true }
 };
 
+console.log(process.env.HOST);
+
 var app = new Express();
 
 app.use(require('webpack-dev-middleware')(compiler, serverOptions));

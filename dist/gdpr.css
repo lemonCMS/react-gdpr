@@ -1,44 +1,17 @@
-.react-gdr-cookiebar {
-  margin: 0px;
-  padding: 13px;
-  position: fixed;
-  height: 60px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  text-align: center;
-  color: white;
-  z-index: 2010;
-  font-size: 85%;
-}
-
-.react-gdr-cookiebar-opacity {
-  position: fixed;
-  height: 60px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  text-align: center;
-  background-color: #2b2f57;
-  opacity: 0.8;
-  color: white;
-  z-index: 2009;
-}
-
 .react-gdr-page-overlay {
   position: fixed;
   top: 0px;
   bottom: 0px;
   left: 0px;
   right: 0px;
-  background-color: #53585a;
-  opacity: 0.8;
-  color: white;
+  background-color: black;
+  opacity: 0.5;
+  color: #454545;
   z-index: 2020;
 }
 
 .react-gdr-page-modal-container {
-  position: fixed;
+  position: absolute;
   top: 0px;
   bottom: 0px;
   left: 0px;
@@ -50,53 +23,52 @@
   position: relative;
   background-color: #fff;
   min-height: 104px;
-  max-width: 720px;
+  max-width: 600px;
   z-index: 1022;
   padding: 0;
   margin: 0 auto;
   margin-top: 30px;
-  font-family: Arial, sans-serif;
+  font-family: inherit;
+  border-radius: 3px;
 }
 
 .react-gdr-page-modal .header {
-  background-color: #2b2f57;
-  color: white;
-  padding: 10px 20px;
-  font-size: 1.8em;
+  background-color: transparent;
+  color: inherit;
+  padding: 30px 30px 0 30px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
 }
 
 .react-gdr-page-modal .body {
-  padding: 20px;
-  color: #333;
-  font-size: 0.9em;
-  line-height: 1.8em;
+  padding: 10px 30px 30px 30px;
+  color: #454545;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .react-gdr-page-modal .info {
-  margin-bottom: 10px;
-}
-
-.react-gdr-page-modal .info {
-  font-size: 1em;
-  font-family: Arial, sans-serif;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .react-gdr-page-modal .level {
-  border: 2px solid #aaa;
-  padding: 10px;
+  border: 2px solid rgba(228, 43, 26, .2);
+  padding: 5px 13px 8px 13px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .react-gdr-page-modal .level:hover {
-  border-color: #0c667a;
+  border-color: #e42b1a;
 }
 
 .react-gdr-page-modal .level.active, .react-gdr-page-modal .level:hover.active {
-  border-color: #0c8599;
-  background-color: #dffdff;
+  border-color: #e42b1a;
+  background-color: rgba(228, 43, 26, .08);
 }
 
 .react-gdr-page-modal .level::after, .react-gdr-page-modal .buttonBar::after {
@@ -105,38 +77,45 @@
   display: table;
 }
 
-.react-gdr-page-modal .levelTxt {
-  padding: 10px;
-  width: calc(100% - 165px);
+.react-gdr-page-modal .level h4 {
+  font-size: 1em;
+  font-size: 100%;
+  font-weight: bold;
+  display: inline;
 }
 
-.react-gdr-page-modal .icon {
-  float: left;
+.react-gdr-page-modal .levelTxt {
+  padding: 10px;
+}
+
+.react-gdr-page-modal .buttonBar {
   text-align: center;
-  background-color: #0c8599;
-  color: #fff;
-  padding: 10px 30px;
-  width: 165px;
+  padding-top: 10px;
 }
 
 .react-gdr-page-modal .button {
-  background-color: #0c8599;
+  background-color: #e42b1a;
   border: none;
   color: white;
-  padding: 15px 32px;
+  padding: 10px 20px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  float: right;
+  font-size: inherit;
+  font-weight: bold;
+  border-radius: 3px;
 }
 
 .react-gdr-page-modal .button:hover {
-  background-color: #0c667a;
+  background-color: #e42b1a;
 }
 
 .react-gdr-page-modal .button[disabled], .react-gdr-page-modal .button[disabled]:hover {
-  background-color: #babdc2;
+  background-color: rgba(228, 43, 26, .2);
+}
+
+a {
+  color: #e42b1a;
 }
 
 @media only screen and (max-width: 600px) {
@@ -147,3 +126,36 @@
     width: 100%;
   }
 }
+
+.changeSettings {
+  color: #9e9e9e;
+  background: #eeeeee;
+  font-size: 85%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  text-align: center;
+}
+
+.changeSettings div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  line-height: 1.35em;
+}
+
+.changeSettings .mooidingetje {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  font-size: 2.2em;
+  color: #9e9e9e;
+  padding-bottom: 5px;
+}
+
+/*# sourceMappingURL=gdpr.css.map*/

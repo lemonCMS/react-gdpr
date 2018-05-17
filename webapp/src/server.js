@@ -13,7 +13,7 @@ import {getBundles} from 'react-loadable/webpack';
 // import httpProxy from 'http-proxy';
 import Html from './Html';
 import config from './config';
-import CookieConsent from './CookieConsent';
+import CookieConsent from './Components/CookieConsent';
 import getChunks, {waitChunks} from './utils/getChunks';
 
 const chunksPath = path.join(__dirname, '..', 'static', 'dist', 'loadable-chunks.json');
