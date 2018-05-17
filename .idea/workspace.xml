@@ -2,22 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="05ae4fff-a304-4129-9766-a5b7d6ec7deb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/webapp/src/Components/BlockResource.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/gdpr.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/gdpr.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/gdpr.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/gdpr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/bin/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/bin/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/Components/CookieSettings.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/Components/Cookiebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/Cookiebar.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/CookieConsent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/client.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/client.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/webpack/prod.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/webpack/prod.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/webpack/vendor.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/webpack/vendor.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/webpack/webpack-dev-server.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/webpack/webpack-dev-server.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -40,8 +28,8 @@
       <file leaf-file-name="CookieConsent.jsx" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="66" column="70" selection-start-line="66" selection-start-column="70" selection-end-line="66" selection-end-column="70" />
+            <state relative-caret-position="204">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
               <folding>
                 <element signature="e#37#42#1" expanded="true" />
                 <element signature="e#40#45#1" expanded="true" />
@@ -55,8 +43,8 @@
       <file leaf-file-name="CookieBar.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+            <state relative-caret-position="246">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
             </state>
           </provider>
         </entry>
@@ -113,8 +101,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>config</find>
-      <find>proxy</find>
       <find>cookies</find>
       <find>store</find>
       <find>univer</find>
@@ -129,7 +115,6 @@
       <find>devt</find>
       <find>font</find>
       <find>cookieConsent</find>
-      <find>console</find>
       <find>consol</find>
       <find>ugli</find>
       <find>after</find>
@@ -143,6 +128,9 @@
       <find>host</find>
       <find>event</find>
       <find>state.level</find>
+      <find>this.state.level</find>
+      <find>level</find>
+      <find>console</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/webapp/webpack</dir>
@@ -189,9 +177,6 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="NodeModulesDirectoryManager">
-    <handled-path value="$PROJECT_DIR$/webapp/node_modules" />
-  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths>
       <path value="$PROJECT_DIR$/webapp/package.json" />
@@ -199,9 +184,9 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="67" />
-    <option name="y" value="25" />
+    <option name="y" value="27" />
     <option name="width" value="2493" />
-    <option name="height" value="1415" />
+    <option name="height" value="1413" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -297,7 +282,7 @@
       <workItem from="1526379026853" duration="2781000" />
       <workItem from="1526409712603" duration="2660000" />
       <workItem from="1526412433934" duration="17342000" />
-      <workItem from="1526557526522" duration="5264000" />
+      <workItem from="1526557526522" duration="6871000" />
     </task>
     <task id="LOCAL-00001" summary="add external message support.">
       <created>1526393060438</created>
@@ -324,7 +309,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61499000" />
+    <option name="totallyTimeSpent" value="63106000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
@@ -670,15 +655,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="16" column="23" selection-start-line="16" selection-start-column="23" selection-end-line="16" selection-end-column="23" />
+        <state relative-caret-position="246">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="66" column="70" selection-start-line="66" selection-start-column="70" selection-end-line="66" selection-end-column="70" />
+        <state relative-caret-position="204">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
           <folding>
             <element signature="e#37#42#1" expanded="true" />
             <element signature="e#40#45#1" expanded="true" />

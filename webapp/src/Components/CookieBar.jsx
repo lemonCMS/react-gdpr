@@ -63,7 +63,6 @@ class CookieBar extends React.Component {
       this.context.saveCookieConsent(this.state.level);
     };
 
-    console.log(this.state);
     return (
       <div
         style={{display: 'none'}}

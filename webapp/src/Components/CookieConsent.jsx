@@ -17,7 +17,7 @@ class CookieConsent extends React.Component {
     url: '/cookies',
     url_title: 'privacy- en cookieverklaring.',
     button: 'Accepteren',
-    level1: '<h4>Strict:</h4> Cookies zonder video&#39;s en zonder aanbiedingen. Deze zijn nodig om onze website te kunnen bezoeken en\n' +
+    level1: '<h4>Strikt:</h4> Cookies zonder video&#39;s en zonder aanbiedingen. Deze zijn nodig om onze website te kunnen bezoeken en\n' +
     '                in te kunnen loggen. Je bezoek en gegevens worden niet bijgehouden.',
     level2: '<h4>Statistieken:</h4> Cookies met video&#39;s maar zonder aanbiedingen. Met deze cookies kun je de website bezoeken,\n' +
     '                inloggen en video&#39;s bekijken. Je bezoek en gegevens worden bijgehouden.',
@@ -44,8 +44,7 @@ class CookieConsent extends React.Component {
     this.state = {
       showCookieSettings: false,
       showCookieBar: true,
-      openedByHash: false,
-      level: 1
+      openedByHash: false
     };
     if (typeof window !== 'undefined') {
       this.cookies = new CookiesJS();
@@ -80,7 +79,7 @@ class CookieConsent extends React.Component {
   saveCookieConsent(level) {
     this.cookies.set('cookieConsent', level, this.cookieOptions);
     this.cookies.set('cookieAccepted', 'true', this.cookieOptions);
-    this.setState({openedByHash: false, level: level, showCookieBar: false});
+    this.setState({openedByHash: false, showCookieBar: false});
     if (this.config.reload === false) {
       this.updateDoc();
       if (typeof window.history !== 'undefined' && typeof window.history.pushState !== 'undefined') {
