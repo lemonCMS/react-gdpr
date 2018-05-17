@@ -77,7 +77,6 @@ $color-primary: #e42b1a;
   }
 
   .level h4 {
-    font-size:1em;
     font-size:100%;
     font-weight: bold;
     display: inline;
@@ -111,11 +110,14 @@ $color-primary: #e42b1a;
   .button[disabled], .button[disabled]:hover {
     background-color: rgba($color-primary, .2);
   }
+
+  a {
+    color: $color-primary;
+  }
+
 }
 
-a {
-  color: $color-primary; 
-}
+
 
 @media only screen and (max-width: 600px) {
   .react-gdr-page-modal {
@@ -128,18 +130,24 @@ a {
   }
 }
 
+
+
 .changeSettings {
   color: #9e9e9e;
   background:#eeeeee;
   font-size:85%;
-  top: 0;  
-  left: 0;  
-  bottom: 0;  
-  right: 0;  
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   position: absolute;
   text-align: center;
 
-  div {    
+  a {
+    color: $color-primary;
+  }
+
+  div {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -156,6 +164,7 @@ a {
     color: #9e9e9e;
     padding-bottom: 5px;
   }
+
 }
 
 

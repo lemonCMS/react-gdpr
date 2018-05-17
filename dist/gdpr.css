@@ -78,7 +78,6 @@
 }
 
 .react-gdr-page-modal .level h4 {
-  font-size: 1em;
   font-size: 100%;
   font-weight: bold;
   display: inline;
@@ -114,7 +113,7 @@
   background-color: rgba(228, 43, 26, .2);
 }
 
-a {
+.react-gdr-page-modal a {
   color: #e42b1a;
 }
 
@@ -137,6 +136,10 @@ a {
   right: 0;
   position: absolute;
   text-align: center;
+}
+
+.changeSettings a {
+  color: #e42b1a;
 }
 
 .changeSettings div {
