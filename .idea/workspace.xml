@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="05ae4fff-a304-4129-9766-a5b7d6ec7deb" name="Default" comment="" />
+    <list default="true" id="05ae4fff-a304-4129-9766-a5b7d6ec7deb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,17 +22,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CookieConsent.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CookieConsent.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+            <state relative-caret-position="323">
+              <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
               <folding>
                 <element signature="e#37#42#1" expanded="true" />
                 <element signature="e#40#45#1" expanded="true" />
                 <element signature="e#152#157#1" expanded="true" />
                 <element signature="e#34#39#1" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -163,6 +174,7 @@
         <option value="$PROJECT_DIR$/webapp/bin/server.js" />
         <option value="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" />
         <option value="$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -277,7 +289,7 @@
       <workItem from="1526379026853" duration="2781000" />
       <workItem from="1526409712603" duration="2660000" />
       <workItem from="1526412433934" duration="17342000" />
-      <workItem from="1526557526522" duration="7606000" />
+      <workItem from="1526557526522" duration="8160000" />
     </task>
     <task id="LOCAL-00001" summary="add external message support.">
       <created>1526393060438</created>
@@ -304,10 +316,11 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63841000" />
+    <option name="totallyTimeSpent" value="64395000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="2493" height="1415" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3357813" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -369,13 +382,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/webapp/src/Components/Cookiebar.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="16" selection-start-line="2" selection-start-column="16" selection-end-line="2" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/static/dist/main-ee34a010b111bdb0f0d6.js" />
     <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx">
       <provider selected="true" editor-type-id="text-editor">
@@ -656,14 +662,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
+        <state relative-caret-position="323">
+          <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
           <folding>
             <element signature="e#37#42#1" expanded="true" />
             <element signature="e#40#45#1" expanded="true" />
             <element signature="e#152#157#1" expanded="true" />
             <element signature="e#34#39#1" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
         </state>
       </provider>
     </entry>
