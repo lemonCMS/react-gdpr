@@ -41,6 +41,7 @@ class CookieConsent extends React.Component {
     this.cookieConsentLvl = this.cookieConsentLvl.bind(this);
     this.iframeBlob = this.iframeBlob.bind(this);
     this.updateDoc = this.updateDoc.bind(this);
+    this.getDomainName = this.getDomainName.bind(this);
     this.init = this.init.bind(this);
     this.state = {
       showCookieSettings: false,
@@ -77,7 +78,24 @@ class CookieConsent extends React.Component {
     };
   }
 
+  getDomainName() {
+    let i = 0;
+    let domain = document.domain;
+    const p = domain.split('.');
+    const s = '_gd' + (new Date()).getTime();
+
+    while (i < (p.length - 1) && document.cookie.indexOf(s + '=' + s) === -1) {
+      domain = p.slice(-1 - (i += 1)).join('.');
+      document.cookie = s + '=' + s + ';domain=' + domain + ';';
+    }
+    document.cookie = s + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domain + ';';
+    return domain;
+
+  }
+
+
   saveCookieConsent(level) {
+    this.cookieOptions.domain = this.getDomainName(window.location.host);
     this.cookies.set('cookieConsent', level, this.cookieOptions);
     this.cookies.set('cookieAccepted', 'true', this.cookieOptions);
     this.setState({openedByHash: false, showCookieBar: false});
@@ -156,7 +174,7 @@ class CookieConsent extends React.Component {
         }
       } else {
         elements[i].removeAttribute('src');
-        if (elements[i].tagName === 'IFRAME') {
+        if (elements[i].tagName === 'IFRAME' || elements[i].tagName === 'IMG') {
           if (!elements[i].dataset.gdprPlaceholder) {
             elements[i].dataset.gdprDisplay = elements[i].style.display;
             elements[i].style.display = 'none';
