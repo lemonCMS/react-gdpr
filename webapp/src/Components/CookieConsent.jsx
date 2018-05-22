@@ -10,7 +10,7 @@ import BlockResource from './BlockResource';
 class CookieConsent extends React.Component {
   config = {
     reload: false,
-    ignoreUserAgent: /bot|googlebot|crawler|spider|robot|crawling/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : 'xxxx'),
+    ignoreUserAgent: /bot|googlebot|crawler|spider|robot|crawling|page speed/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : 'xxxx'),
     title: 'Deze website gebruikt cookies',
     intro: 'Daarmee zorgen we dat de website werkt en je kunt inloggen. Selecteer één van de drie opties en klik op\n' +
     '                &#39;Accepteren&#39;. Bekijk onze <a href="/privacy">privacy- en cookieverklaring</a>',
@@ -41,6 +41,7 @@ class CookieConsent extends React.Component {
     this.cookieConsentLvl = this.cookieConsentLvl.bind(this);
     this.iframeBlob = this.iframeBlob.bind(this);
     this.updateDoc = this.updateDoc.bind(this);
+    this.getDomainName = this.getDomainName.bind(this);
     this.init = this.init.bind(this);
     this.state = {
       showCookieSettings: false,
@@ -77,7 +78,24 @@ class CookieConsent extends React.Component {
     };
   }
 
+  getDomainName() {
+    let i = 0;
+    let domain = document.domain;
+    const p = domain.split('.');
+    const s = '_gd' + (new Date()).getTime();
+
+    while (i < (p.length - 1) && document.cookie.indexOf(s + '=' + s) === -1) {
+      domain = p.slice(-1 - (i += 1)).join('.');
+      document.cookie = s + '=' + s + ';domain=' + domain + ';';
+    }
+    document.cookie = s + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;domain=' + domain + ';';
+    return domain;
+
+  }
+
+
   saveCookieConsent(level) {
+    this.cookieOptions.domain = this.getDomainName(window.location.host);
     this.cookies.set('cookieConsent', level, this.cookieOptions);
     this.cookies.set('cookieAccepted', 'true', this.cookieOptions);
     this.setState({openedByHash: false, showCookieBar: false});

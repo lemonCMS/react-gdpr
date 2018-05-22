@@ -6,16 +6,14 @@
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
 =======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/gdpr.css" beforeDir="false" afterPath="$PROJECT_DIR$/dist/gdpr.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/gdpr.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/gdpr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/webapp/src/Components/Cookiebar.scss" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/Components/Cookiebar.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/yarn.lock" afterDir="false" />
 >>>>>>> 032aaf042c6ff0b5108c67642a2294ffbe6fa66e
+=======
+>>>>>>> 219447a356a0ed5bf506aec3929478a7e50d6375
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -69,12 +67,17 @@
         <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx">
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+<<<<<<< HEAD
             <state relative-caret-position="323">
               <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
 =======
             <state relative-caret-position="72">
               <caret line="160" column="43" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="43" />
 >>>>>>> 032aaf042c6ff0b5108c67642a2294ffbe6fa66e
+=======
+            <state relative-caret-position="521">
+              <caret line="192" column="11" selection-start-line="192" selection-start-column="11" selection-end-line="192" selection-end-column="11" />
+>>>>>>> 219447a356a0ed5bf506aec3929478a7e50d6375
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
                 <element signature="e#121#126#0" expanded="true" />
@@ -132,8 +135,8 @@
       <file leaf-file-name="settings.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+            <state relative-caret-position="72">
+              <caret line="4" column="95" selection-start-line="4" selection-start-column="91" selection-end-line="4" selection-end-column="95" />
               <folding>
                 <element signature="e#41#46#1" expanded="true" />
                 <element signature="e#153#158#1" expanded="true" />
@@ -219,9 +222,9 @@
         <option value="$PROJECT_DIR$/webapp/bin/server.js" />
         <option value="$PROJECT_DIR$/webapp/package.json" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/settings.js" />
         <option value="$PROJECT_DIR$/webapp/src/Components/Cookiebar.scss" />
         <option value="$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx" />
+        <option value="$PROJECT_DIR$/settings.js" />
         <option value="$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx" />
         <option value="$PROJECT_DIR$/.gitignore" />
       </list>
@@ -358,14 +361,17 @@
   </component>
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="64395000" />
 =======
     <option name="totallyTimeSpent" value="68841000" />
 >>>>>>> 032aaf042c6ff0b5108c67642a2294ffbe6fa66e
+=======
+    <option name="totallyTimeSpent" value="73758000" />
+>>>>>>> 219447a356a0ed5bf506aec3929478a7e50d6375
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Messages" />
@@ -373,8 +379,8 @@
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.5538954" visible="true" weight="0.41702586" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21558164" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" sideWeight="0.5538954" visible="true" weight="0.41702586" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21558164" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -402,23 +408,24 @@
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="3" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3357813" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.55405957" visible="true" weight="0.43079317" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.55405957" visible="true" weight="0.43079317" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.44594043" side_tool="true" weight="0.43079317" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Messages" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -706,18 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
-          <folding>
-            <element signature="e#41#46#1" expanded="true" />
-            <element signature="e#153#158#1" expanded="true" />
-            <element signature="e#41#46#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieBar.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -732,15 +727,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx">
+    <entry file="file://$PROJECT_DIR$/settings.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
         <state relative-caret-position="323">
           <caret line="26" column="4" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
 =======
         <state relative-caret-position="72">
+<<<<<<< HEAD
           <caret line="160" column="43" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="43" />
 >>>>>>> 032aaf042c6ff0b5108c67642a2294ffbe6fa66e
+=======
+          <caret line="4" column="95" selection-start-line="4" selection-start-column="91" selection-end-line="4" selection-end-column="95" />
+          <folding>
+            <element signature="e#41#46#1" expanded="true" />
+            <element signature="e#153#158#1" expanded="true" />
+            <element signature="e#41#46#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/webapp/src/Components/CookieConsent.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="521">
+          <caret line="192" column="11" selection-start-line="192" selection-start-column="11" selection-end-line="192" selection-end-column="11" />
+>>>>>>> 219447a356a0ed5bf506aec3929478a7e50d6375
           <folding>
             <element signature="e#0#26#0" expanded="true" />
             <element signature="e#121#126#0" expanded="true" />
