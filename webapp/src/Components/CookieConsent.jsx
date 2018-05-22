@@ -13,16 +13,17 @@ class CookieConsent extends React.Component {
     ignoreUserAgent: /bot|googlebot|crawler|spider|robot|crawling/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : 'xxxx'),
     title: 'Deze website gebruikt cookies',
     intro: 'Daarmee zorgen we dat de website werkt en je kunt inloggen. Selecteer één van de drie opties en klik op\n' +
-    '                ‘Accepteren’.',
-    url: '/cookies',
-    url_title: 'privacy- en cookieverklaring.',
+    '                &#39;Accepteren&#39;. Bekijk onze <a href="/privacy">privacy- en cookieverklaring</a>',
     button: 'Accepteren',
-    level1: '<h4>Strikt:</h4> Cookies zonder video&#39;s en zonder aanbiedingen. Deze zijn nodig om onze website te kunnen bezoeken en\n' +
+    level1: null,
+    level2: null,
+    level3: null,
+    /*level1: '<h4>Strikt:</h4> Cookies zonder video&#39;s en zonder aanbiedingen. Deze zijn nodig om onze website te kunnen bezoeken en\n' +
     '                in te kunnen loggen. Je bezoek en gegevens worden niet bijgehouden.',
     level2: '<h4>Statistieken:</h4> Cookies met video&#39;s maar zonder aanbiedingen. Met deze cookies kun je de website bezoeken,\n' +
     '                inloggen en video&#39;s bekijken. Je bezoek en gegevens worden bijgehouden.',
     level3: '<h4>Extern:</h4> Cookies met video&#39;s en aanbiedingen. Met deze cookies werkt de website optimaal. Je bezoek wordt\n' +
-    '                bijgehouden zodat we onze website kunnen verbeteren en je aanbiedingen kunnen doen.',
+    '                bijgehouden zodat we onze website kunnen verbeteren en je aanbiedingen kunnen doen.',*/
     iFrameBlob: ReactDomServer.renderToStaticMarkup(<BlockResource />),
   };
   cookies = null;
@@ -155,7 +156,7 @@ class CookieConsent extends React.Component {
         }
       } else {
         elements[i].removeAttribute('src');
-        if (elements[i].tagName === 'IFRAME') {
+        if (elements[i].tagName === 'IFRAME' || elements[i].tagName === 'IMG') {
           if (!elements[i].dataset.gdprPlaceholder) {
             elements[i].dataset.gdprDisplay = elements[i].style.display;
             elements[i].style.display = 'none';

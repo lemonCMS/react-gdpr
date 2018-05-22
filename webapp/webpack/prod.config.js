@@ -2,7 +2,7 @@
 var path = require('path');
 var webpack = require('webpack');
 var CleanPlugin = require('clean-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 var projectRootPath = path.resolve(__dirname, '../');
 var assetsPath = path.resolve(projectRootPath, '../dist');
@@ -10,7 +10,8 @@ var assetsPath = path.resolve(projectRootPath, '../dist');
 // https://github.com/halt-hammerzeit/webpack-isomorphic-tools
 var WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 var webpackIsomorphicToolsPlugin = new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools'));
-var UglifyJSPlugin = require('uglify-js-plugin');
+var UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+var OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
   devtool: 'source-map',
@@ -30,6 +31,16 @@ module.exports = {
   performance: {
     hints: false
   },
+  optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true // set to true if you want JS source maps
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ]
+  },
   module: {
     rules: [
       {
@@ -40,100 +51,36 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/
       }, {
-        test: /\.less$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 2,
-                localIdentName: '[local]',
-                sourceMap: true
-              }
-            }, {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                config: {
-                  path: 'postcss.config.js'
-                }
-              }
-            }, {
-              loader: 'less-loader',
-              options: {
-                outputStyle: 'expanded',
-                sourceMap: true,
-                sourceMapContents: true
-              }
+        test: /\.s?[ac]ss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              importLoaders: 2,
+              localIdentName: '[local]',
+              sourceMap: true
             }
-          ]
-        })
-      }, {
-        test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                importLoaders: 2,
-                localIdentName: '[local]',
-                sourceMap: true
+          }, {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
+              config: {
+                path: 'postcss.config.js'
               }
-            }, {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                config: {
-                  path: 'postcss.config.js'
-                }
 
-              }
-            }, {
-              loader: 'sass-loader',
-              options: {
-                outputStyle: 'expanded',
-                sourceMap: true,
-                sourceMapContents: true
-              }
             }
-          ]
-        })
-      }, {
-        test: /\.css/,
-        loader: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                modules: true,
-                minimize: true,
-                importLoaders: 2,
-                sourceMap: true,
-                localIdentName: '[local]'
-              }
-            }, {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: true,
-                config: {
-                  path: 'postcss.config.js'
-                }
-              }
-            }, {
-              loader: 'sass-loader',
-              options: {
-                outputStyle: 'expanded',
-                sourceMap: true,
-                sourceMapContents: true
-              }
+          }, {
+            loader: 'sass-loader',
+            options: {
+              outputStyle: 'expanded',
+              sourceMap: true,
+              sourceMapContents: true
             }
-          ]
-        })
+          }
+        ]
+
       }, {
         test: /\.woff2?(\?v=\d+\.\d+\.\d+)?$/,
         loader: 'url-loader',
@@ -179,10 +126,12 @@ module.exports = {
     new CleanPlugin([assetsPath], { root: path.resolve(projectRootPath, '..') }),
 
     // css files from the extract-text-plugin loader
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name].css',
+      chunkFilename: '[id].css',
+
       // disable: false,
-      allChunks: true
+      // allChunks: true
     }),
 
 
@@ -190,17 +139,6 @@ module.exports = {
     new webpack.IgnorePlugin(/\.\/dev/, /\/config$/),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
-    }),
-    new UglifyJSPlugin({
-      uglifyOptions: {
-        beautify: false,
-        compress: true,
-        comments: false,
-        mangle: false,
-        toplevel: false,
-        keep_classnames: true, // <-- doesn't exist, I guess. It's in harmony branch
-        keep_fnames: true //
-      }
     })
   ]
 };

@@ -75,6 +75,7 @@ export default class Html extends Component {
 
           {/* (will be present only in development mode) */}
           {assets.styles && Object.keys(assets.styles).length === 0 ? <style dangerouslySetInnerHTML={{__html: '#reactContent{display:none}'}} /> : null}
+          <script src={'/settings.js'} type={'text/javascript'} />
         </head>
         <body className="smart-style-4">
           <div className="addthis_sharing_toolbox" />
@@ -92,6 +93,7 @@ export default class Html extends Component {
           <script src="/js/async.js" />
           <script dangerouslySetInnerHTML={{__html: loader()}} />
           <script dangerouslySetInnerHTML={{__html: messages()}} />
+
           <script type="text/javascript" data-gdpr-lvl="3" data-gdpr-src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-529cd319245ade32" />
         </body>
       </html>

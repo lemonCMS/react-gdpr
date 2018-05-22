@@ -73,13 +73,9 @@ class CookieBar extends React.Component {
         <div className={styles['react-gdr-page-overlay']} />
         <div className={styles['react-gdr-page-modal-container']}>
           <div className={styles['react-gdr-page-modal']}>
-            <div className={styles.header}>
-              {data.title}
-            </div>
+            <div className={styles.header} dangerouslySetInnerHTML={{__html: data.title}} />
             <div className={styles.body}>
-              <div className={styles.info}>
-                {data.intro} {data.url && <a href={data.url}>{data.url_title}</a>}
-              </div>
+              <div className={styles.info} dangerouslySetInnerHTML={{__html: data.intro}} />
               {data.level3 !== null &&
               <Level onClick={() => levelClick(3)} active={this.state.level === 3}>
                 {data.level3}
