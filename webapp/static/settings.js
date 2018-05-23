@@ -5,5 +5,4 @@ reactGpdrSettings = {
   '                inloggen en video&#39;s bekijken. Je bezoek en gegevens worden bijgehouden.',
   level3: '<h4>Extern:</h4> Cookies met video&#39;s en aanbiedingen. Met deze cookies werkt de website optimaal. Je bezoek wordt\n' +
   '                bijgehouden zodat we onze website kunnen verbeteren en je aanbiedingen kunnen doen.',
-
 };

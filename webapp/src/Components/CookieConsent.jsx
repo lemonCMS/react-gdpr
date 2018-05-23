@@ -11,6 +11,7 @@ class CookieConsent extends React.Component {
   config = {
     reload: false,
     ignoreUserAgent: /bot|googlebot|crawler|spider|robot|crawling|page speed/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : 'xxxx'),
+    whitelist: /privacy/i.test(typeof window !== 'undefined' ? window.location.href : 'xxxx'),
     title: 'Deze website gebruikt cookies',
     intro: 'Daarmee zorgen we dat de website werkt en je kunt inloggen. Selecteer één van de drie opties en klik op\n' +
     '                &#39;Accepteren&#39;. Bekijk onze <a href="/privacy">privacy- en cookieverklaring</a>',
@@ -29,7 +30,7 @@ class CookieConsent extends React.Component {
   cookies = null;
   cookieOptions = {
     path: '/',
-    expires: new Date(new Date().getTime() + (60 * 60 * 1000 * 24 * (365 * 5))) //5 years
+    expires: new Date(new Date().getTime() + (60 * 60 * 1000 * 24 * (365 * 1))) //1 year
   };
   iFrameBlobData = null;
 
@@ -150,6 +151,9 @@ class CookieConsent extends React.Component {
       if (typeof window !== 'undefined' && typeof window.reactGpdrSettings !== 'undefined') {
         this.config = Object.assign({}, this.config, window.reactGpdrSettings);
       }
+
+      console.log(this.config);
+
       window.addEventListener('hashchange', this.listener);
       this.updateDoc();
     }

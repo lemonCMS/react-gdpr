@@ -4,8 +4,6 @@ var reactGpdrSettings = {
   title: 'Deze website gebruikt cookies',
   intro: 'Daarmee zorgen we dat de website werkt en je kunt inloggen. Selecteer één van de drie opties en klik op\n' +
   '                ‘Accepteren’.',
-  url: '/cookies',
-  url_title: 'privacy- en cookieverklaring.',
   button: 'Accepteren',
   level1: '<h4>Minimaal:</h4> Cookies die nodig zijn om onze website te kunnen bezoeken en\n' +
   '                in te kunnen loggen. Je bezoek en gegevens worden niet bijgehouden.',

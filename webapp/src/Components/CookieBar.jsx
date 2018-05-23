@@ -28,7 +28,7 @@ class CookieBar extends React.Component {
   };
 
   componentDidMount() {
-    if (this.context.config.ignoreUserAgent === false) {
+    if (this.context.config.ignoreUserAgent === false && this.context.config.whitelist === false) {
       if (
         (window &&
           this.context.cookies.get('cookieAccepted') !== 'true') ||
@@ -41,7 +41,7 @@ class CookieBar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.context.config.ignoreUserAgent === false) {
+    if (this.context.config.ignoreUserAgent === false && this.context.config.whitelist === false) {
       if (
         nextProps.open === true
       ) {
