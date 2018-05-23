@@ -1,6 +1,7 @@
 var reactGpdrSettings = {
   reload: false,
   ignoreUserAgent: /bot|googlebot|crawler|spider|robot|crawling|page speed/i.test(navigator.userAgent),
+  whitelist: /privacy/i.test(typeof window !== 'undefined' ? window.location.href : 'xxxx'),
   title: 'Deze website gebruikt cookies',
   intro: 'Daarmee zorgen we dat de website werkt en je kunt inloggen. Selecteer één van de drie opties en klik op\n' +
   '                ‘Accepteren’.',
