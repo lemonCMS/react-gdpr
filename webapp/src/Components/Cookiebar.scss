@@ -66,6 +66,7 @@ $color-primary: #e42b1a;
   }
 
   .level.active, .level:hover.active {
+    background: none;
     border-color: $color-primary;
     background-color: rgba($color-primary, .08);
   }
