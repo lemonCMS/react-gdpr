@@ -152,8 +152,6 @@ class CookieConsent extends React.Component {
         this.config = Object.assign({}, this.config, window.reactGpdrSettings);
       }
 
-      console.log(this.config);
-
       window.addEventListener('hashchange', this.listener);
       this.updateDoc();
     }
@@ -188,6 +186,7 @@ class CookieConsent extends React.Component {
             elements[i].dataset.gdprPlaceholder = true;
             elements[i].dataset.gdprUniqId = id;
             child.setAttribute('id', id);
+            child.setAttribute('class', 'gdpr-legacy');
             if (elements[i].nextSibling) {
               elements[i].parentNode.insertBefore(child, elements[i].nextSibling);
             } else {

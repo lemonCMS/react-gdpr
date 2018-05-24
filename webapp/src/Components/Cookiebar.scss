@@ -130,7 +130,11 @@ $color-primary: #e42b1a;
   }
 }
 
-
+.gdpr-legacy {
+  position: relative;
+  min-width: 100px;
+  min-height: 100px;
+}
 
 .changeSettings {
   color: #9e9e9e;
