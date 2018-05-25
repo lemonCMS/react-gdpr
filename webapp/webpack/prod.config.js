@@ -14,7 +14,7 @@ var UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 var OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 module.exports = {
-  devtool: 'source-map',
+  // devtool: 'source-map',
   mode: 'production',
   context: path.resolve(__dirname, '..'),
   entry: {
