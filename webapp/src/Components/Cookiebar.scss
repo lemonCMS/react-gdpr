@@ -1,4 +1,11 @@
-$color-primary: #e42b1a;
+$color-primary: #f47104;
+
+.gdpr-legacy {
+  min-width: 300px;
+  min-height:200px;
+  position:relative;
+}
+
 
 .react-gdr-page-overlay {
   position: fixed;

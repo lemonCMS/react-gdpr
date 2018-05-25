@@ -188,6 +188,7 @@ class CookieConsent extends React.Component {
             elements[i].dataset.gdprPlaceholder = true;
             elements[i].dataset.gdprUniqId = id;
             child.setAttribute('id', id);
+            child.setAttribute('class', 'gdpr-legacy');
             if (elements[i].nextSibling) {
               elements[i].parentNode.insertBefore(child, elements[i].nextSibling);
             } else {
@@ -222,7 +223,7 @@ class CookieConsent extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={'gdpr-support'}>
         {<CookieBar open={this.state.openedByHash} />}
       </div>
     );
