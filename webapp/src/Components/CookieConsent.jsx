@@ -152,8 +152,6 @@ class CookieConsent extends React.Component {
         this.config = Object.assign({}, this.config, window.reactGpdrSettings);
       }
 
-      console.log(this.config);
-
       window.addEventListener('hashchange', this.listener);
       this.updateDoc();
     }
@@ -180,21 +178,32 @@ class CookieConsent extends React.Component {
         elements[i].removeAttribute('src');
         if (elements[i].tagName === 'IFRAME' || elements[i].tagName === 'IMG') {
           if (!elements[i].dataset.gdprPlaceholder) {
-            elements[i].dataset.gdprDisplay = elements[i].style.display;
-            elements[i].style.display = 'none';
-            const child = document.createElement('div');
-            const id = `gdpr-${uniqid()}`;
-
-            elements[i].dataset.gdprPlaceholder = true;
-            elements[i].dataset.gdprUniqId = id;
-            child.setAttribute('id', id);
-            child.setAttribute('class', 'gdpr-legacy');
-            if (elements[i].nextSibling) {
-              elements[i].parentNode.insertBefore(child, elements[i].nextSibling);
-            } else {
-              elements[i].parentNode.appendChild(child);
+            let render = true;
+            if (elements[i].hasAttribute('width')) {
+              const width = elements[i].getAttribute('width');
+              if (width === '1') {
+                render = false
+              }
             }
-            child.innerHTML = this.config.iFrameBlob;
+
+            if (render === true) {
+              elements[i].dataset.gdprDisplay = elements[i].style.display;
+              elements[i].style.display = 'none';
+              const child = document.createElement('div');
+              const id = `gdpr-${uniqid()}`;
+
+              elements[i].dataset.gdprPlaceholder = true;
+              elements[i].dataset.gdprUniqId = id;
+              child.setAttribute('id', id);
+              child.setAttribute('class', 'gdpr-legacy');
+
+              if (elements[i].nextSibling) {
+                elements[i].parentNode.insertBefore(child, elements[i].nextSibling);
+              } else {
+                elements[i].parentNode.appendChild(child);
+              }
+              child.innerHTML = this.config.iFrameBlob;
+            }
           }
         }
       }
