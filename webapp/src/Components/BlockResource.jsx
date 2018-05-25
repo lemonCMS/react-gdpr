@@ -15,7 +15,7 @@ class BlockResource extends React.Component {
           {' '}
           <a href={(typeof navigator !== 'undefined' ? window.location.href.split('#')[0] : '' ) + '#gdprSettings'}>cookie instellingen</a>
           {' '}
-          op <strong>extern</strong> zetten.
+          op <strong>optimaal</strong> zetten.
         </div>
       </div>
     );
@@ -23,6 +23,6 @@ class BlockResource extends React.Component {
 }
 
 BlockResource.propTypes = {};
-BlockResource.defaultProps = {};
+BlockResource.defaultProps = {};-m
 
 export default hot(module)(BlockResource);
