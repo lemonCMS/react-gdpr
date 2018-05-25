@@ -130,7 +130,7 @@ class CookieConsent extends React.Component {
       typeof window !== 'undefined' &&
       typeof window.location !== 'undefined' &&
       typeof window.location.hash !== 'undefined' &&
-      window.location.hash === '#cookieConsent'
+      window.location.hash === '#gdprSettings'
     ) {
       this.setState({
         openedByHash: true,
@@ -182,7 +182,7 @@ class CookieConsent extends React.Component {
             if (elements[i].hasAttribute('width')) {
               const width = elements[i].getAttribute('width');
               if (width === '1') {
-                render = false
+                render = false;
               }
             }
 
@@ -217,7 +217,7 @@ class CookieConsent extends React.Component {
       typeof event.target.window !== 'undefined' &&
       typeof event.target.window.location !== 'undefined' &&
       typeof event.target.window.location.hash !== 'undefined' &&
-      event.target.window.location.hash === '#cookieConsent'
+      event.target.window.location.hash === '#gdprSettings'
     ) {
       this.setState({
         openedByHash: true,

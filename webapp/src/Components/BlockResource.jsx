@@ -13,7 +13,7 @@ class BlockResource extends React.Component {
           {' '}
           Om deze resource te kunnen zien moet u de
           {' '}
-          <a href={(typeof navigator !== 'undefined' ? window.location.href.split('#')[0] : '' ) + '#cookieConsent'}>cookie instellingen</a>
+          <a href={(typeof navigator !== 'undefined' ? window.location.href.split('#')[0] : '' ) + '#gdprSettings'}>cookie instellingen</a>
           {' '}
           op <strong>extern</strong> zetten.
         </div>
