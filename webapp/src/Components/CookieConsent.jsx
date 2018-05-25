@@ -38,6 +38,7 @@ class CookieConsent extends React.Component {
     super();
     this.toggleCookieSettings = this.toggleCookieSettings.bind(this);
     this.saveCookieConsent = this.saveCookieConsent.bind(this);
+    this.scroller = this.scroller.bind(this);
     this.listener = this.listener.bind(this);
     this.cookieConsentLvl = this.cookieConsentLvl.bind(this);
     this.iframeBlob = this.iframeBlob.bind(this);
@@ -47,8 +48,9 @@ class CookieConsent extends React.Component {
     this.state = {
       showCookieSettings: false,
       showCookieBar: true,
-      openedByHash: false
+      openedByHash: false,
     };
+    this.position = 0;
     if (typeof window !== 'undefined') {
       this.cookies = new CookiesJS();
     }
@@ -107,6 +109,8 @@ class CookieConsent extends React.Component {
       } else {
         window.location.hash = '';
       }
+
+      window.scrollTo(0, this.position);
     } else {
       window.location.reload(true);
     }
@@ -153,6 +157,7 @@ class CookieConsent extends React.Component {
       }
 
       window.addEventListener('hashchange', this.listener);
+      window.addEventListener('scroll', this.scroller);
       this.updateDoc();
     }
   }
@@ -208,6 +213,16 @@ class CookieConsent extends React.Component {
         }
       }
     }
+  }
+
+
+  scroller() {
+    const doc = document.documentElement;
+    const currPos = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+    if (currPos > 0) {
+      this.position = currPos;
+    }
+
   }
 
   listener(event) {

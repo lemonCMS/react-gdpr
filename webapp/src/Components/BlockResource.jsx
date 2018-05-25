@@ -23,6 +23,6 @@ class BlockResource extends React.Component {
 }
 
 BlockResource.propTypes = {};
-BlockResource.defaultProps = {};-m
+BlockResource.defaultProps = {};
 
 export default hot(module)(BlockResource);
