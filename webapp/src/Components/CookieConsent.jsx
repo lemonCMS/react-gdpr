@@ -219,7 +219,7 @@ class CookieConsent extends React.Component {
   scroller() {
     const doc = document.documentElement;
     const currPos = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
-    if (currPos > 0) {
+    if (!this.state.openedByHash && currPos > 0) {
       this.position = currPos;
     }
 
