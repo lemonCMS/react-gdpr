@@ -5,17 +5,22 @@ import {hot} from 'react-hot-loader';
 import CookiesJS from 'universal-cookie';
 import uniqid from 'uniqid';
 import CookieBar from './CookieBar';
+import CookieBarCompact from './CookieBarCompact';
 import BlockResource from './BlockResource';
 
 class CookieConsent extends React.Component {
   config = {
     reload: false,
+    compact: true,
     ignoreUserAgent: /bot|googlebot|crawler|spider|robot|crawling|page speed/i.test(typeof navigator !== 'undefined' ? navigator.userAgent : 'xxxx'),
     whitelist: /privacy/i.test(typeof window !== 'undefined' ? window.location.href : 'xxxx'),
     title: 'Deze website gebruikt cookies',
     intro: 'Daarmee zorgen we dat de website werkt en je kunt inloggen. Selecteer één van de drie opties en klik op\n' +
-    '                &#39;Accepteren&#39;. Bekijk onze <a href="/privacy">privacy- en cookieverklaring</a>',
+      '                &#39;Accepteren&#39;. Bekijk onze <a href="/privacy">privacy- en cookieverklaring</a>',
+    cookieBar: 'Deze website gebruikt cookies standaard alleen o.b.v. anonieme verwerking. <a href="/privacy">Lees de privacy- en cookieverklaring</a>',
     button: 'Accepteren',
+    buttonCancel: null,
+    buttonSettings: 'Instellingen',
     level1: null,
     level2: null,
     level3: null,
@@ -248,7 +253,7 @@ class CookieConsent extends React.Component {
   render() {
     return (
       <div className={'gdpr-support'}>
-        {<CookieBar open={this.state.openedByHash} />}
+        {this.config.compact ? <CookieBarCompact open={this.state.openedByHash} /> : <CookieBar open={this.state.openedByHash} />}
       </div>
     );
   }

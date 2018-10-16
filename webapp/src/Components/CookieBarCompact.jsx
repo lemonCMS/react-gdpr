@@ -7,15 +7,15 @@ import {hot} from 'react-hot-loader';
 import styles from './Cookiebar.scss';
 import Level from './Level';
 
-class CookieBar extends React.Component {
-
+class CookieBarCompact extends React.Component {
 
   constructor(props, context) {
     super();
     const level = context.cookieConsent();
     this.state = {
       disabled: level === null,
-      level: level
+      level: level,
+      modal: false
     };
   }
 
@@ -41,16 +41,15 @@ class CookieBar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    // if (this.context.config.ignoreUserAgent === false && this.context.config.whitelist === false) {
     if (
       nextProps.open === true
     ) {
-      this.ref.style.display = 'block';
+      this.refModal.style.display = 'block';
       this.setState({level: this.context.cookieConsent(), disabled: false});
     } else if (nextProps.open === false) {
+      this.refModal.style.display = 'none';
       this.ref.style.display = 'none';
     }
-    // }
   }
 
   render() {
@@ -63,36 +62,48 @@ class CookieBar extends React.Component {
       this.context.saveCookieConsent(this.state.level);
     };
 
-    return (
+    const choose = (
       <div
         style={{display: 'none'}}
         ref={(ref) => {
-          this.ref = ref;
+          this.refModal = ref;
         }}>
 
         <div className={styles['react-gdr-page-overlay']} />
         <div className={styles['react-gdr-page-modal-container']}>
           <div className={styles['react-gdr-page-modal']}>
-            <div className={styles.header} dangerouslySetInnerHTML={{__html: data.title}} />
+            <div className={styles.header}
+              dangerouslySetInnerHTML={{__html: data.title}} />
             <div className={styles.body}>
-              <div className={styles.info} dangerouslySetInnerHTML={{__html: data.intro}} />
+              <div className={styles.info}
+                dangerouslySetInnerHTML={{__html: data.intro}} />
               {data.level3 !== null &&
-              <Level onClick={() => levelClick(3)} active={this.state.level === 3}>
+              <Level onClick={() => levelClick(3)}
+                active={this.state.level === 3}>
                 {data.level3}
               </Level>
               }
               {data.level2 !== null &&
-              <Level onClick={() => levelClick(2)} active={this.state.level === 2}>
+              <Level onClick={() => levelClick(2)}
+                active={this.state.level === 2}>
                 {data.level2}
               </Level>
               }
               {data.level1 !== null &&
-              <Level onClick={() => levelClick(1)} active={this.state.level === 1}>
+              <Level onClick={() => levelClick(1)}
+                active={this.state.level === 1}>
                 {data.level1}
               </Level>
               }
 
               <div className={styles.buttonBar}>
+                {data.buttonCancel !== null && <button
+                  className={styles.buttonCancel}
+                  onClick={() => {this.refModal.style.display = 'none';}}
+                >
+                  {data.buttonCancel}
+                </button>}
+                {' '}
                 <button
                   className={styles.button}
                   disabled={this.state.disabled}
@@ -106,14 +117,50 @@ class CookieBar extends React.Component {
         </div>
       </div>
     );
+
+
+    const bar = (
+      <div
+        className={styles.cookiebar}
+        style={{display: 'none'}}
+        ref={(ref) => {
+          this.ref = ref;
+        }}
+      >
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-sm-7"
+              dangerouslySetInnerHTML={{__html: data.cookieBar}} />
+            <div className="col-sm-5">
+              <div className={styles.cbButtonBar}>
+                <button className={styles.cbSettings}
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    this.refModal.style.display = 'block';
+                  }}>
+                  {data.buttonSettings}
+                </button>
+                {' '}
+                <button className={styles.cbButton}
+                  onClick={() => this.context.saveCookieConsent(3)}>
+                  {data.button}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>);
+
+    return <React.Fragment>{choose}{bar}</React.Fragment>;
   }
 }
 
-CookieBar.propTypes = {
+CookieBarCompact.propTypes = {
   open: PropTypes.bool
 };
-CookieBar.defaultProps = {
+CookieBarCompact.defaultProps = {
   open: false
 };
 
-export default hot(module)(CookieBar);
+export default hot(module)(CookieBarCompact);

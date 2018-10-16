@@ -1,10 +1,103 @@
-$color-primary: #f47104;
+$color-primary: #0082c8;
+$color-secondary: #b1b1b1;
 
+.cookiebar {
+  margin: 0px;
+  padding: 10px ;
+  position: fixed;
+  height: auto;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  text-align: center;
+  z-index: 1010;
+  font-family:  inherit;
+  color: #0082c8;
+  font-size: inherit;
+  background-color: #f6f9fa;
+  box-shadow: 0px 0px 6px rgba(23, 26, 66, 0.4);
+  border-radius: 2px 2px 0px 0px;
+  line-height: 1.4em;
+
+  [class*="col-"]:first-child {
+      padding-top:10px;
+      padding-bottom:10px;
+  }
+
+  .cbRow {
+
+    .cbLeft {
+
+    }
+
+    .cbRight {
+
+    }
+  }
+
+
+  .cbButtonBar {
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom:5px;
+
+    .cbSettings {
+      background-color: $color-secondary;
+      border: none;
+      color: white;
+      padding: 0px 20px;
+      line-height: 2.5em;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: inherit;
+      font-weight: bold;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-size:85%;
+      margin-bottom:5px;
+    }
+
+    .cbSettings:hover, .cbSettings:active {
+      background-color: $color-secondary;
+    }
+
+    .cbButton {
+      background-color: $color-primary;
+      border: none;
+      color: white;
+      padding: 0px 20px;
+      line-height: 2.5em;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: inherit;
+      font-weight: bold;
+      border-radius: 3px;
+      text-transform: uppercase;
+      font-size:90%;
+      margin-bottom:5px;
+    }
+
+    .cbButton:hover {
+      background-color: $color-primary;
+    }
+  }
+  a {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+
+}
+
+
+/*
 .gdpr-legacy {
   min-width: 300px;
   min-height:200px;
   position:relative;
 }
+*/
 
 
 .react-gdr-page-overlay {
@@ -120,8 +213,31 @@ $color-primary: #f47104;
     background-color: rgba($color-primary, .2);
   }
 
+  .buttonCancel {
+    background-color: $color-secondary;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: inherit;
+    font-weight: bold;
+    border-radius: 3px;
+  }
+
+  .buttonCancel:hover {
+    background-color: $color-secondary;
+  }
+
+  .buttonCancel[disabled], .buttonCancel[disabled]:hover {
+    background-color: rgba($color-secondary, .2);
+  }
+
+
   a {
     color: $color-primary;
+    text-decoration: underline;
   }
 
 }
@@ -139,11 +255,13 @@ $color-primary: #f47104;
   }
 }
 
+/*
 .gdpr-legacy {
   position: relative;
   min-width: 100px;
   min-height: 100px;
 }
+*/
 
 .changeSettings {
   color: #9e9e9e;
