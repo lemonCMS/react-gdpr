@@ -2,6 +2,10 @@
 
 To add a easy cookieconsent compliant to the may 2018 rules.
 
+## Demo
+[https://ultimatejs.babyblox.nl/cookiebar](https://ultimatejs.babyblox.nl/cookiebar)
+
+
 ## Install
 
 ````git clone git@github.com:lemonCMS/react-gdpr.git ````
